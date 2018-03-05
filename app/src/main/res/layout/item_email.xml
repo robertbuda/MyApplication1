@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <EditText
+        android:id="@+id/editTitleEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="@string/title"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="32dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="32dp"/>
+
+    <EditText
+        android:id="@+id/editAdressEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+       app:layout_constraintLeft_toLeftOf="@id/editTitleEmail"
+        app:layout_constraintTop_toBottomOf="@id/editTitleEmail"
+        android:layout_marginTop="32dp"/>
+
+    <Button
+        android:id="@+id/buttonEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/send"
+        app:layout_constraintLeft_toLeftOf="@id/editAdressEmail"
+        app:layout_constraintTop_toBottomOf="@id/editAdressEmail"
+        android:layout_marginTop="32dp"
+
+        />
+</android.support.constraint.ConstraintLayout>

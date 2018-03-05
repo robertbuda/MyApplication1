@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <TextView
+        android:id="@+id/textViewMountain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mountain"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="20dp"
+        android:textColor="@color/Indigo900"
+        />
+
+    <TextClock
+        android:id="@+id/textClock2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/textViewMountain"
+        android:text="@string/_12_00"
+        app:layout_constraintBaseline_toBaselineOf="@id/textViewMountain"
+        android:layout_marginStart="20dp"
+        android:textColor="@color/Indigo900"
+        />
+
+    <TextView
+        android:id="@+id/imageViewSun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_wb_sunny_black_24px"
+        app:layout_constraintTop_toBottomOf="@id/textViewMountain"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toLeftOf="@id/textViewMountain"
+        android:contentDescription="@string/sunimage" />
+
+    <TextView
+        android:id="@+id/temperature1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/temp1"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toRightOf="@id/imageViewSun"
+        android:layout_marginStart="20dp"
+        app:layout_constraintTop_toBottomOf="@id/textViewMountain"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/Indigo900"
+        />
+
+    <TextView
+        android:id="@+id/textFeel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/feels_like"
+        app:layout_constraintTop_toBottomOf="@id/imageViewSun"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toLeftOf="@id/imageViewSun"
+        android:textColor="@color/Indigo900"
+        />
+
+    <TextView
+        android:id="@+id/temperature2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/temp1"
+        app:layout_constraintLeft_toRightOf="@id/textFeel"
+        app:layout_constraintBaseline_toBaselineOf="@id/textFeel"
+        android:layout_marginStart="5dp"
+        android:textColor="@color/Indigo900"
+        />
+
+    <TextView
+        android:id="@+id/imageViewWind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_call_made_black_24px"
+        app:layout_constraintTop_toBottomOf="@id/textFeel"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toLeftOf="@id/textViewMountain"
+        android:contentDescription="@string/winddirection" />
+
+    <TextView
+        android:id="@+id/textWind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_13_m_s"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toRightOf="@id/imageViewWind"
+        android:layout_marginStart="20dp"
+        app:layout_constraintTop_toBottomOf="@id/textFeel"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/Indigo900"
+        />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_1"
+        app:layout_constraintTop_toBottomOf="@id/imageViewWind"
+        android:layout_marginTop="100dp"
+        app:layout_constraintLeft_toLeftOf="@id/imageViewWind"
+        />
+
+    <SeekBar
+        android:id="@+id/seekBar1"
+        android:layout_width="200dp"
+        app:layout_constraintLeft_toLeftOf="@id/switch1"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/switch1"
+        android:layout_marginTop="100sp"
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/man"
+        app:layout_constraintLeft_toLeftOf="@id/seekBar1"
+        app:layout_constraintBottom_toTopOf="@id/seekBar1"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/today"
+        app:layout_constraintRight_toRightOf="@id/seekBar1"
+        app:layout_constraintBottom_toTopOf="@id/seekBar1"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_5_00"
+        app:layout_constraintLeft_toLeftOf="@id/seekBar1"
+        app:layout_constraintTop_toBottomOf="@id/seekBar1"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_24_00"
+        app:layout_constraintRight_toRightOf="@id/seekBar1"
+        app:layout_constraintTop_toBottomOf="@id/seekBar1"
+        />
+
+
+</android.support.constraint.ConstraintLayout>

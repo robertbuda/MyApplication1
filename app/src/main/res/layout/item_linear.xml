@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        app:srcCompat="@android:drawable/ic_dialog_alert"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_1"
+        android:padding="5dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="16dp"
+        />
+
+    <EditText
+        android:id="@+id/edittext3"
+        android:text="@string/text_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        />
+
+    <RelativeLayout
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="center_horizontal"
+        >
+
+    <View
+        android:id="@+id/viev1"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@color/colorPrimaryDark"
+        />
+
+       <View
+           android:id="@+id/view2"
+           android:layout_width="50dp"
+           android:layout_height="50dp"
+           android:background="@color/white"
+           android:layout_centerInParent="true"
+           android:layout_alignTop="@+id/viev1"
+           android:layout_marginTop="10dp"
+           android:layout_alignLeft="@+id/viev1"
+           android:layout_marginStart="10dp"
+           />
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:background="@color/white"
+            android:layout_centerInParent="true"
+            android:layout_alignTop="@+id/viev1"
+            android:layout_marginTop="10dp"
+            android:layout_alignRight="@+id/viev1"
+            android:layout_marginEnd="10dp"
+            />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageview1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:background="@color/colorPrimary"
+            android:tooltipText="@string/text_2" />
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/text_2"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+
+</LinearLayout>

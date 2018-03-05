@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">My Application 1</string>
+    <string name="dalej">Dalej</string>
+    <string name="textview" translatable="false">TextView</string>
+    <string name="permission_denied_message">You need to grant permissio</string>
+    <string name="dialog_message">Do you want to grant permission?</string>
+    <string name="dialog_title">Please think</string>
+    <string name="grant">GRANT</string>
+    <string name="deny">DENY</string>
+    <string name="TextLayout2" translatable="false">TL2</string>
+    <string name="text_1" translatable="false">Text 1 ..............</string>
+    <string name="text_2" translatable="false">Text 2 ..............</string>
+    <string name="text_3" translatable="false">Text 3 ..............</string>
+    <string name="text_4" translatable="false">Text 4 ..............</string>
+    <string name="bad">Bad</string>
+    <string name="good">Good</string>
+    <string name="icy">Icy</string>
+    <string name="send_snow_review">Send snow review</string>
+    <string name="choose_max_2_words">Choose max 2 words</string>
+    <string name="background">background</string>
+    <string name="the_review">The review is published without name, only time and date</string>
+    <string name="projectList">Lista projektów</string>
+    <string name="activity_main_camera">Camera</string>
+    <string name="linear" translatable="false">Linear</string>
+    <string name="relative" translatable="false">Relative</string>
+    <string name="constraint" translatable="false">Constraint</string>
+    <string name="snow_review">Snow Review</string>
+    <string name="mountain">Mountain</string>
+    <string name="temp1" translatable="false">-13</string>
+    <string name="feels_like">Feels like</string>
+    <string name="_12_00" translatable="false">12:00</string>
+    <string name="wind1" translatable="false">wind1</string>
+    <string name="_13_m_s" translatable="false">13 m/s</string>
+    <string name="winddirection">winddirection</string>
+    <string name="sunimage" translatable="false">sunimage</string>
+    <string name="weather">Weather</string>
+    <string name="man" translatable="false">MAN</string>
+    <string name="today">Today</string>
+    <string name="_5_00" translatable="false">5:00</string>
+    <string name="_24_00" translatable="false">24:00</string>
+    <string name="call">Call</string>
+    <string name="check_box">Check this box to make a call</string>
+    <string name="next">Next</string>
+    <string name="make_a_call">Make a call</string>
+    <string name="type_number_to_call">Type number to call</string>
+    <string name="my_call_app">MY CALL APP</string>
+    <string name="wpisz_adres_www">Wpisz adres www</string>
+    <string name="dalej_do_www">dalej do www</string>
+    <string name="send_email">Send email</string>
+    <string name="send">Send</string>
+    <string name="title">Title</string>
+
+</resources>

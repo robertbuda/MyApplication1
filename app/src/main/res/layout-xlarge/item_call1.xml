@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+   <TextView
+       android:id="@+id/phone1"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:drawableStart="@drawable/ic_call_black_24px"
+       app:layout_constraintTop_toTopOf="parent"
+       android:layout_marginTop="100dp"
+       app:layout_constraintLeft_toLeftOf="parent"
+       android:layout_marginStart="50dp"
+       android:text="   MY CALL APP"
+       />
+
+    <CheckBox
+        android:id="@+id/checkBoxPhone1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/check_box"
+        app:layout_constraintTop_toTopOf="@id/phone1"
+        android:layout_marginTop="100dp"
+        app:layout_constraintLeft_toLeftOf="@id/phone1"
+        />
+
+    <Button
+        android:id="@+id/buttonPhone1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next"
+        app:layout_constraintTop_toTopOf="@id/checkBoxPhone1"
+        android:layout_marginTop="100dp"
+        app:layout_constraintLeft_toLeftOf="@id/checkBoxPhone1"
+        />
+
+</android.support.constraint.ConstraintLayout>

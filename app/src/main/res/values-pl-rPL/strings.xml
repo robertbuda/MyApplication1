@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My Application 1</string>
+    <string name="dalej">Dalej</string>
+    <string name="permission_denied_message">Musisz nadać uprawnienia</string>
+    <string name="dialog_message">Czy chcesz udzielić pozwolenia?</string>
+    <string name="dialog_title">" Proszę, pomyśl"</string>
+    <string name="grant">UDZIELAJ</string>
+    <string name="deny">ODMÓW</string>
+    <string name="bad">Zły</string>
+    <string name="good">Dobry</string>
+    <string name="icy">Lodowaty</string>
+    <string name="send_snow_review">"Wyślij recenzję śniegu "</string>
+    <string name="choose_max_2_words">Choose max 2 words</string>
+    <string name="background">tło</string>
+    <string name="the_review">Recenzja jest publikowana bez nazwy, tylko czas i data</string>
+    <string name="projectList">Lista projektów</string>
+    <string name="activity_main_camera">"Aparat fotograficzny "</string>
+    <string name="snow_review">"Przegląd pogody "</string>
+    <string name="mountain">Góra</string>
+    <string name="feels_like">Odczuwalne</string>
+    <string name="winddirection">"kierunek wiatru "</string>
+    <string name="weather">Pogoda</string>
+    <string name="today">Dzisiaj</string>
+    <string name="call">Dzwoń</string>
+    <string name="check_box">"Zaznacz to pole, aby zadzwonić "</string>
+    <string name="next">Następny</string>
+    <string name="make_a_call">Zadzwoń</string>
+    <string name="type_number_to_call">Wpisz numer, aby zadzwonić</string>
+</resources>

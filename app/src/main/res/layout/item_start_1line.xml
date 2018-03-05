@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:text="@string/projectList"
+            android:gravity="center"/>
+
+        <Button
+            android:id="@+id/buttonStart1"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="@string/activity_main_camera"
+            android:drawableBottom="@drawable/ic_add_a_photo_black_24px" />
+
+        <Button
+            android:id="@+id/buttonStart2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/linear"
+            android:drawableBottom="@drawable/ic_view_headline_black_24px"/>
+
+        <Button
+            android:id="@+id/buttonStart3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/relative"
+            android:drawableBottom="@drawable/ic_picture_in_picture_black_24px"/>
+
+        <Button
+            android:id="@+id/buttonStart4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/constraint"
+            android:drawableBottom="@drawable/ic_vertical_align_center_black_24px"/>
+
+        <Button
+            android:id="@+id/buttonStart5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/snow_review"
+            android:drawableBottom="@drawable/ic_ac_unit_black_24px"
+            />
+
+        <Button
+            android:id="@+id/buttonStart6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/weather"
+            android:drawableBottom="@drawable/ic_wb_sunny_black_24px"
+            />
+
+        <Button
+            android:id="@+id/buttonStart7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/call"
+            android:drawableBottom="@drawable/ic_call_black_24px"
+            />
+
+        <Button
+            android:id="@+id/buttonStart8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/wpisz_adres_www"
+            android:drawableBottom="@drawable/ic_forward_black_24px"
+            />
+
+        <Button
+            android:id="@+id/buttonStart9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/send_email"
+            android:drawableBottom="@drawable/ic_forward_black_24px"
+            />
+
+        <Button
+            android:id="@+id/buttonStart10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Life Cycle"
+            android:drawableBottom="@drawable/ic_forward_black_24px"
+            />
+
+    </LinearLayout>
+
+</ScrollView>
