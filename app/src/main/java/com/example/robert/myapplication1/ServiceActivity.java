@@ -58,8 +58,4 @@ public class ServiceActivity extends AppCompatActivity {
         stopService(intent);
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
 }
