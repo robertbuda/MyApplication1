@@ -13,7 +13,7 @@
 
 
     <application
-
+        android:name=".SdaApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -47,7 +47,10 @@
         <activity android:name=".BroadcastRegAppActivity"/>
         <activity android:name=".NotificationActivity"/>
         <activity android:name=".ServiceActivity"/>
+        <activity android:name=".DownloadActivity"/>
+
         <service android:name="services.FirstIntentService"/>
+        <service android:name=".SecondIntentService" />
 
         <receiver android:name=".MyBroadcastReceiver" android:exported="true">
 
@@ -84,6 +87,8 @@
         </receiver>
 
 
+
+
         <activity android:name=".StartActivity">
 
         <intent-filter>
@@ -92,7 +97,6 @@
         </intent-filter>
 
         </activity>
-
 
 
     </application>

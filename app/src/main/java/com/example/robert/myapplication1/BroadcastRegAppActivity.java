@@ -22,19 +22,15 @@ import android.widget.Button;
 
 public class BroadcastRegAppActivity extends AppCompatActivity {
 
-
     private Button buttonBroadcastToApp;
     private Button buttonBroadcastRegister;
-
     private BroadcastReceiver broadcastFromApp;
     private BroadcastReceiver broadcastFromAppAfterTime;
     Context context = this;
     public String nameBroadcast = "SENDING";
-
     private String CHANNEL_ID = "1";
     private String textTitle = "Notofication Title Vol 1";
     private String textContent = "Text in Notification vol 2";
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,7 +44,6 @@ public class BroadcastRegAppActivity extends AppCompatActivity {
         broadcastFromApp = new MyBroadcastAppReceiver();
         IntentFilter filter = new IntentFilter("SENDING");
         LocalBroadcastManager.getInstance(context).registerReceiver(broadcastFromApp, filter);
-
 
         buttonBroadcastToApp.setOnClickListener(new View.OnClickListener() {
             @Override

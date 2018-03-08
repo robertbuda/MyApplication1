@@ -98,109 +98,111 @@
 </LinearLayout>
 
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        >
-
-        <Button
-            android:id="@+id/buttonStart1"
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:text="CAMERA"
-            android:drawableBottom="@drawable/ic_add_a_photo_black_24px" />
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/buttonStart7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/call"
-            android:drawableBottom="@drawable/ic_call_black_24px"
-            />
+            <Button
+                android:id="@+id/buttonStart1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableBottom="@drawable/ic_add_a_photo_black_24px"
+                android:text="CAMERA" />
 
-        <Button
-            android:id="@+id/buttonStart8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TYPE WWW"
-            android:drawableBottom="@drawable/ic_forward_black_24px"
-            />
+            <Button
+                android:id="@+id/buttonStart7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableBottom="@drawable/ic_call_black_24px"
+                android:text="@string/call" />
 
-        <Button
-            android:id="@+id/buttonStart9"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/send_email"
-            android:drawableBottom="@drawable/ic_forward_black_24px"
-            />
+            <Button
+                android:id="@+id/buttonStart8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableBottom="@drawable/ic_forward_black_24px"
+                android:text="TYPE WWW" />
 
-        <Button
-            android:id="@+id/buttonStart11"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Menu"
-            android:drawableBottom="@drawable/ic_forward_black_24px"
-            />
+            <Button
+                android:id="@+id/buttonStart9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableBottom="@drawable/ic_forward_black_24px"
+                android:text="@string/send_email" />
 
-        <Button
-            android:id="@+id/buttonStart13"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Fragment"
-            android:drawableBottom="@drawable/ic_forward_black_24px"
-            />
+            <Button
+                android:id="@+id/buttonStart11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableBottom="@drawable/ic_forward_black_24px"
+                android:text="Menu" />
 
-        <Button
-            android:id="@+id/buttonStart14"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Fragment Dynamic"
-            android:drawableBottom="@drawable/ic_forward_black_24px"
-            />
+            <Button
+                android:id="@+id/buttonStart13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableBottom="@drawable/ic_forward_black_24px"
+                android:text="Fragment" />
 
-        <Button
-            android:id="@+id/buttonStart15"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Broadcast Receiver"
-            android:drawableBottom="@drawable/ic_forward_black_24px"
-            />
+            <Button
+                android:id="@+id/buttonStart14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableBottom="@drawable/ic_forward_black_24px"
+                android:text="Fragment Dynamic" />
 
-        <Button
-            android:id="@+id/buttonStart16"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Broadcast on Boot"
-            android:drawableBottom="@drawable/ic_tag_faces_black_24px"
-            />
+            <Button
+                android:id="@+id/buttonStart15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableBottom="@drawable/ic_forward_black_24px"
+                android:text="Broadcast Receiver" />
 
-        <Button
-            android:id="@+id/buttonStart17"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Broadcast In APP"
-            android:drawableBottom="@drawable/ic_tag_faces_black_24px"
-            />
+            <Button
+                android:id="@+id/buttonStart16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableBottom="@drawable/ic_tag_faces_black_24px"
+                android:text="Broadcast on Boot" />
 
-        <Button
-            android:id="@+id/buttonStart18"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Simple Notification"
-            android:drawableBottom="@drawable/ic_tag_faces_black_24px"
-            />
+            <Button
+                android:id="@+id/buttonStart17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableBottom="@drawable/ic_tag_faces_black_24px"
+                android:text="Broadcast In APP" />
 
-        <Button
-            android:id="@+id/buttonStart19"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Service Life Cycle"
-            android:drawableBottom="@drawable/ic_tag_faces_black_24px"
-            />
+            <Button
+                android:id="@+id/buttonStart18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableBottom="@drawable/ic_tag_faces_black_24px"
+                android:text="Simple Notification" />
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/buttonStart19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableBottom="@drawable/ic_tag_faces_black_24px"
+                android:text="Service Life Cycle" />
+
+            <Button
+                android:id="@+id/buttonStart20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableBottom="@drawable/ic_tag_faces_black_24px"
+                android:text="Timber Logs" />
+
+            <Button
+                android:id="@+id/buttonStart21"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableBottom="@drawable/ic_tag_faces_black_24px"
+                android:text="Download Status" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

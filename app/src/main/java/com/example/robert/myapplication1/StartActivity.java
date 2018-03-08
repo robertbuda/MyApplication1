@@ -31,6 +31,8 @@ public class StartActivity extends AppCompatActivity {
     private Button button17;
     private Button button18;
     private Button button19;
+    private Button button20;
+    private Button button21;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -186,6 +188,22 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openActivity(ServiceActivity.class);
+            }
+        });
+
+        button20 = (Button) findViewById(R.id.buttonStart20);
+        button20.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(SecondIntentService.class);
+            }
+        });
+
+        button21 = (Button) findViewById(R.id.buttonStart21);
+        button21.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(DownloadActivity.class);
             }
         });
 

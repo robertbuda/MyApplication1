@@ -13,6 +13,8 @@ import android.widget.Toast;
 import com.example.robert.myapplication1.R;
 import com.example.robert.myapplication1.ServiceActivity;
 
+import timber.log.Timber;
+
 /**
  * Created by Robert on 2018-03-02.
  */
@@ -31,11 +33,18 @@ public class FirstIntentService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
 
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
+        for (int i = 0 ; i <1000 ; i++){
+
+            Timber.d(String.valueOf(i+1));
+
+
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
         }
+        order++;
     }
 
     @Override
@@ -44,6 +53,8 @@ public class FirstIntentService extends IntentService {
         Toast toast = Toast.makeText(this, "START OF onCreate", Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.TOP,0,0);
         toast.show();
+
+        displayStatus();
         //status = "onCreate";
         //displayStatus();
     }
