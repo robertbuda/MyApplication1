@@ -57,5 +57,4 @@ public class ServiceActivity extends AppCompatActivity {
         Intent intent = new Intent(this, FirstIntentService.class);
         stopService(intent);
     }
-
 }

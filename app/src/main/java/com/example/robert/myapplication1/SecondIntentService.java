@@ -19,7 +19,7 @@ public class SecondIntentService extends IntentService {
 
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10; i++) {
 
             Timber.d(String.valueOf(i+1));
 
@@ -31,6 +31,7 @@ public class SecondIntentService extends IntentService {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
+                Thread.currentThread().interrupt();
             }
         }
     }

@@ -24,7 +24,6 @@ public class FirstIntentService extends IntentService {
     private View view;
     private String status = "";
     private int order = 0;
-    private Button buttonS;
 
     public FirstIntentService() {
         super("FirstIntentService");
@@ -33,11 +32,8 @@ public class FirstIntentService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
 
-        for (int i = 0 ; i <1000 ; i++){
-
+        for (int i = 0 ; i <30 ; i++){
             Timber.d(String.valueOf(i+1));
-
-
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
@@ -54,7 +50,7 @@ public class FirstIntentService extends IntentService {
         toast.setGravity(Gravity.TOP,0,0);
         toast.show();
 
-        displayStatus();
+        //displayStatus();
         //status = "onCreate";
         //displayStatus();
     }
@@ -71,6 +67,7 @@ public class FirstIntentService extends IntentService {
         return super.onStartCommand(intent, flags, startId);
     }
 
+
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -81,14 +78,14 @@ public class FirstIntentService extends IntentService {
         //displayStatus();
     }
 
+
     public void displayStatus(){
 
         try {
-            Thread.sleep(1000);
+            Thread.sleep(10000);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
-
         order++;
         String message = String.valueOf(order) + ": " + status;
         Toast toast = Toast.makeText(this, message, Toast.LENGTH_SHORT);

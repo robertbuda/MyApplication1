@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 /**
  * Created by Robert on 2018-03-07.
@@ -23,7 +24,6 @@ public class DownloadActivity extends AppCompatActivity {
     private BroadcastReceiver br;
     private int statusNumber;
     private int number;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,13 +50,21 @@ public class DownloadActivity extends AppCompatActivity {
         @Override
         public void onReceive(Context context, Intent intent) {
 
-            if (statusNumber < 101) {
-                statusNumber = intent.getIntExtra("NUMBER", number);
-                progressBar.setProgress(statusNumber);
+            statusNumber = intent.getIntExtra("NUMBER", number);
+
+            if (statusNumber*10 == 100){
+            showEndText();}
+
+            if (statusNumber*10 <= 100) {
+                progressBar.setProgress(statusNumber*10);
             } else {
                 onDestroy();
             }
         }
+    }
+
+    public void showEndText (){
+        Toast.makeText(this,"Downloading Comlete",Toast.LENGTH_LONG).show();
     }
 
     public void startDownloading(){
@@ -67,6 +75,7 @@ public class DownloadActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+
         LocalBroadcastManager.getInstance(this).unregisterReceiver(br);
     }
 }
