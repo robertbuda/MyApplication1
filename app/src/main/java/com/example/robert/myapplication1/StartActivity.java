@@ -195,7 +195,7 @@ public class StartActivity extends AppCompatActivity {
         button20.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity(SecondIntentService.class);
+                openActivity(DownloadActivity.class);
             }
         });
 

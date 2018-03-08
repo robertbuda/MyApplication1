@@ -48,28 +48,19 @@ public class DownloadActivity extends AppCompatActivity {
         });
     }
 
-    /*@Override
-    protected void onResume() {
-        super.onResume();
-
-        Intent intentReceive = new Intent("DOWNLOAD");
-        statusNumber = (Integer) intentReceive.getExtras().getInt("NUMBER", 0);
-
-        progressBar = (ProgressBar) findViewById(R.id.progressBar1);
-        progressBar.setProgress(statusNumber);
-
-    }*/
-
-    public class MyBroadcastReceiverDownload extends BroadcastReceiver{
+    public class MyBroadcastReceiverDownload extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
 
-            //statusNumber = (Integer) intentReceive.getExtras().getInt("NUMBER", 0);
-            statusNumber = intent.getIntExtra("NUMBER", number);
-            progressBar.setProgress(statusNumber);
+            if (statusNumber < 101) {
+                //statusNumber = (Integer) intentReceive.getExtras().getInt("NUMBER", 0);
+                statusNumber = intent.getIntExtra("NUMBER", number);
+                progressBar.setProgress(statusNumber);
+            } else {
+                onDestroy();
+            }
         }
     }
-
 
     public void startDownloading(){
         Intent intent = new Intent(this, SecondIntentService.class);
@@ -79,6 +70,6 @@ public class DownloadActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        unregisterReceiver(br);
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(br);
     }
 }
