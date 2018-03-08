@@ -52,11 +52,11 @@ public class DownloadActivity extends AppCompatActivity {
 
             statusNumber = intent.getIntExtra("NUMBER", number);
 
-            if (statusNumber*10 == 100){
+            if (statusNumber == 100){
             showEndText();}
 
-            if (statusNumber*10 <= 100) {
-                progressBar.setProgress(statusNumber*10);
+            if (statusNumber <= 100) {
+                progressBar.setProgress(statusNumber);
             } else {
                 onDestroy();
             }
