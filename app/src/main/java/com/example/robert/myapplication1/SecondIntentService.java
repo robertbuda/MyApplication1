@@ -17,7 +17,6 @@ public class SecondIntentService extends IntentService {
         super("SecondIntentService");
     }
 
-
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
         for (int i = 0; i < 100; i++) {
@@ -33,7 +32,6 @@ public class SecondIntentService extends IntentService {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            //Thread.currentThread().interrupt();
         }
     }
 }
