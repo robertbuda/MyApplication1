@@ -33,6 +33,7 @@ public class StartActivity extends AppCompatActivity {
     private Button button19;
     private Button button20;
     private Button button21;
+    private Button button22;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -204,6 +205,14 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openActivity(DownloadActivity.class);
+            }
+        });
+
+        button22 = (Button) findViewById(R.id.buttonStart22);
+        button22.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(ForegroundActivity.class);
             }
         });
 

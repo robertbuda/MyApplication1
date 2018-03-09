@@ -202,6 +202,13 @@
                 android:drawableBottom="@drawable/ic_tag_faces_black_24px"
                 android:text="Download Status" />
 
+            <Button
+                android:id="@+id/buttonStart22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableBottom="@drawable/ic_tag_faces_black_24px"
+                android:text="Foreground Service" />
+
         </LinearLayout>
 
     </LinearLayout>

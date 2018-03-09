@@ -48,9 +48,11 @@
         <activity android:name=".NotificationActivity"/>
         <activity android:name=".ServiceActivity"/>
         <activity android:name=".DownloadActivity"/>
+        <activity android:name=".ForegroundActivity"/>
 
         <service android:name="services.FirstIntentService"/>
         <service android:name=".SecondIntentService" />
+        <service android:name="services.ForegroundService" />
 
         <receiver android:name=".MyBroadcastReceiver" android:exported="true">
 
