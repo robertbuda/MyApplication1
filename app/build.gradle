@@ -22,6 +22,7 @@ android {
     }
 }
 
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:27.1.0'
@@ -36,4 +37,5 @@ dependencies {
 
     implementation 'com.android.support:support-compat:27.1.0'
     implementation 'com.jakewharton.timber:timber:4.6.1'
+    implementation 'com.google.android.gms:play-services-maps:11.8.0'
 }
