@@ -34,6 +34,12 @@ public class StartActivity extends AppCompatActivity {
     private Button button20;
     private Button button21;
     private Button button22;
+    private Button button23;
+    private Button button24;
+    private Button button25;
+    private Button button26;
+    private Button button27;
+    private Button button28;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -216,9 +222,55 @@ public class StartActivity extends AppCompatActivity {
             }
         });
 
+        button23 = (Button) findViewById(R.id.buttonStart23);
+        button23.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(BinderServiceActivity.class);
+            }
+        });
+
+        button24 = (Button) findViewById(R.id.buttonStart24);
+        button24.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(ButtonCounterActivity.class);
+            }
+        });
+
+        button25 = (Button) findViewById(R.id.buttonStart25);
+        button25.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(SensorListActivity.class);
+            }
+        });
+
+        button26 = (Button) findViewById(R.id.buttonStart26);
+        button26.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(CalculatorActivity.class);
+            }
+        });
+
+        button27 = (Button) findViewById(R.id.buttonStart27);
+        button27.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(MessageActivity.class);
+            }
+        });
+
+        button28 = (Button) findViewById(R.id.buttonStart28);
+        button28.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(LocationActivity.class);
+            }
+        });
+
     }
-
-
 
     private void openActivity(Class class1) {
         Intent intent = new Intent(this, class1);

@@ -93,6 +93,45 @@
         android:drawableBottom="@drawable/ic_tag_faces_black_24px"
         />
 
+    <Button
+        android:id="@+id/buttonStart24"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button Counter"
+        android:drawableBottom="@drawable/ic_tag_faces_black_24px"
+        />
+
+    <Button
+        android:id="@+id/buttonStart25"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sensors"
+        android:drawableBottom="@drawable/ic_tag_faces_black_24px"
+        />
+
+    <Button
+        android:id="@+id/buttonStart26"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calculator"
+        android:drawableBottom="@drawable/ic_tag_faces_black_24px"
+        />
+    <Button
+        android:id="@+id/buttonStart27"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send Message"
+        android:drawableBottom="@drawable/ic_tag_faces_black_24px"
+        />
+
+    <Button
+        android:id="@+id/buttonStart28"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Google Maps"
+        android:drawableBottom="@drawable/ic_tag_faces_black_24px"
+        />
+
 
 
 </LinearLayout>
@@ -208,6 +247,13 @@
                 android:layout_height="wrap_content"
                 android:drawableBottom="@drawable/ic_tag_faces_black_24px"
                 android:text="Foreground Service" />
+
+            <Button
+                android:id="@+id/buttonStart23"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableBottom="@drawable/ic_tag_faces_black_24px"
+                android:text="Bind Service" />
 
         </LinearLayout>
 

@@ -21,6 +21,7 @@ import com.example.robert.myapplication1.Call;
 import com.example.robert.myapplication1.ForegroundActivity;
 import com.example.robert.myapplication1.R;
 import com.example.robert.myapplication1.Snow;
+import com.example.robert.myapplication1.StartActivity;
 
 import timber.log.Timber;
 
@@ -30,7 +31,7 @@ import timber.log.Timber;
 
 public class ForegroundService extends Service {
 
-    private boolean shouldRun;
+    private boolean shouldRun = true;
     private int NOTIFICATION_CHANNEL_ID;
     private String NOTIFICATION_CHANNEL_NAME = "";
 
@@ -38,7 +39,6 @@ public class ForegroundService extends Service {
     private String textTitle = "Notofication Title Vol 1";
     private String textContent = "Text in Notification vol 2";
     private int notificationId = 1;
-    private Button buttonNotification;
 
     @Nullable
     @Override
@@ -51,22 +51,23 @@ public class ForegroundService extends Service {
         super.onCreate();
     }
 
-
     @Override
     public void onDestroy() {
         super.onDestroy();
+        Timber.d("on Destroy");
         shouldRun = false;
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        shouldRun = true;
+        Timber.d("onStartCommand");
         startCounting();
-        showSimpleNotification();
+        //showSimpleNotification();
         return super.onStartCommand(intent, flags, startId);
     }
 
     private void startCounting(){
+        Timber.d("startCounting");
         HandlerThread handlerThread = new HandlerThread("Background thread");
         handlerThread.start();
 
@@ -74,28 +75,26 @@ public class ForegroundService extends Service {
         handler.post(new Runnable() {
             @Override
             public void run() {
-                shouldRun = true;
                 int i = 1;
-                while (shouldRun || i <=10){
+                while (shouldRun && i <=10){
                     Timber.d(String.valueOf(i++));
                     try {
-                        Thread.sleep(1000);
+                        Thread.sleep(500);
                     } catch (InterruptedException e){
                         e.printStackTrace();
                     }
-                    stopSelf();
                 }
-
+                shouldRun = false;
+                stopSelf();
             }
         });
     }
 
-
     private void showSimpleNotification() {
-
-        Intent intent = new Intent(this, Call.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+        Timber.d("showSimpleNotification");
+        Intent intentNotification = new Intent(this, StartActivity.class);
+        intentNotification.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intentNotification, 0);
 
         Intent resultIntent = new Intent(this, Snow.class);
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
@@ -105,8 +104,7 @@ public class ForegroundService extends Service {
                 .setSmallIcon(R.drawable.ic_call_made_black_24px)
                 .setContentTitle(textTitle)
                 .setContentText(textContent)
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .setAutoCancel(true);
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
         notificationManager.notify(notificationId, mBuilder.build());

@@ -41,7 +41,6 @@ public class ForegroundActivity extends AppCompatActivity {
                 stopMyForegroundService();
             }
         });
-
     }
 
     public void startMyForegroundService() {
@@ -56,6 +55,7 @@ public class ForegroundActivity extends AppCompatActivity {
     public void stopMyForegroundService() {
         Intent intent = new Intent(this, ForegroundService.class);
         stopService(intent);
+
     }
 
 

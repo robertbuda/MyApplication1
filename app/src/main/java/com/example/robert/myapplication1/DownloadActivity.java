@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import services.SecondIntentService;
+
 /**
  * Created by Robert on 2018-03-07.
  */
