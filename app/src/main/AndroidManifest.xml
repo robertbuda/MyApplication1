@@ -2,15 +2,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.robert.myapplication1">
-    <uses-feature android:name="android.hardware.camera2"
-        android:required="true"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.CALL_PHONE"
-        tools:ignore="ProtectedPermissions"  />
+
+    <uses-feature
+        android:name="android.hardware.camera2"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission
+        android:name="android.permission.CALL_PHONE"
+        tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-
-
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:name=".SdaApp"
@@ -20,87 +24,92 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity" />
+        <activity android:name=".SecondActivity" />
+        <activity android:name=".CameraActivity" />
+        <activity android:name=".Scroll" />
+        <activity android:name=".Constraint" />
+        <activity android:name=".Linear" />
+        <activity android:name=".Relative" />
+        <activity
+            android:name=".Snow"
+            android:parentActivityName=".StartActivity" />
+        <activity android:name=".Weather" />
+        <activity android:name=".Call" />
+        <activity android:name=".Call2" />
+        <activity android:name=".WebViewActivity1" />
+        <activity android:name=".WebViewActivity2" />
+        <activity android:name=".EmailActivity" />
+        <activity android:name=".LifeTimeActivity" />
+        <activity android:name=".MenuActivity" />
+        <activity android:name=".ButterKnifeActivity" />
+        <activity android:name=".FragmentActivity" />
+        <activity android:name=".FragmentDynamicActivity" />
+        <activity android:name=".BroadcastActivity" />
+        <activity android:name=".BroadcastBootAvtivity" />
+        <activity android:name=".BroadcastInAppActivity" />
+        <activity android:name=".BroadcastRegAppActivity" />
+        <activity android:name=".NotificationActivity" />
+        <activity android:name=".ServiceActivity" />
+        <activity android:name=".DownloadActivity" />
+        <activity android:name=".ForegroundActivity" />
+        <activity android:name=".BinderServiceActivity" />
+        <activity android:name=".ButtonCounterActivity" />
+        <activity android:name=".SensorListActivity" />
+        <activity android:name=".SensorActivity2" />
+        <activity android:name=".CalculatorActivity" />
+        <activity android:name=".MessageActivity" />
+        <activity android:name=".LocationActivity" />
 
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".SecondActivity"/>
-        <activity android:name=".CameraActivity"/>
-        <activity android:name=".Scroll"/>
-        <activity android:name=".Constraint"/>
-        <activity android:name=".Linear"/>
-        <activity android:name=".Relative"/>
-        <activity android:name=".Snow"
-            android:parentActivityName=".StartActivity"/>
-        <activity android:name=".Weather"/>
-        <activity android:name=".Call"/>
-        <activity android:name=".Call2"/>
-        <activity android:name=".WebViewActivity1"/>
-        <activity android:name=".WebViewActivity2"/>
-        <activity android:name=".EmailActivity"/>
-        <activity android:name=".LifeTimeActivity"/>
-        <activity android:name=".MenuActivity"/>
-        <activity android:name=".ButterKnifeActivity"/>
-        <activity android:name=".FragmentActivity"/>
-        <activity android:name=".FragmentDynamicActivity"/>
-        <activity android:name=".BroadcastActivity"/>
-        <activity android:name=".BroadcastBootAvtivity"/>
-        <activity android:name=".BroadcastInAppActivity"/>
-        <activity android:name=".BroadcastRegAppActivity"/>
-        <activity android:name=".NotificationActivity"/>
-        <activity android:name=".ServiceActivity"/>
-        <activity android:name=".DownloadActivity"/>
-        <activity android:name=".ForegroundActivity"/>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
 
-        <service android:name="services.FirstIntentService"/>
-        <service android:name=".SecondIntentService" />
+        <service android:name="services.FirstIntentService" />
+        <service android:name="services.SecondIntentService" />
         <service android:name="services.ForegroundService" />
+        <service android:name="services.BinderService" />
 
-        <receiver android:name=".MyBroadcastReceiver" android:exported="true">
-
+        <receiver
+            android:name=".MyBroadcastReceiver"
+            android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.AIRPLANE_MODE"/>
-                <action android:name="android.intent.action.SCREEN_ON"/>
+                <action android:name="android.intent.action.AIRPLANE_MODE" />
+                <action android:name="android.intent.action.SCREEN_ON" />
             </intent-filter>
-
         </receiver>
-
-        <receiver android:name=".MyBroadcastAppReceiver" android:exported="true">
-
+        <receiver
+            android:name=".MyBroadcastAppReceiver"
+            android:exported="true">
             <intent-filter>
-                <action android:name="SENDING"/>
+                <action android:name="SENDING" />
             </intent-filter>
-
         </receiver>
-
-
-        <receiver android:name=".MyBroadcastReceiverOnBoot" android:exported="true">
-
+        <receiver
+            android:name=".MyBroadcastReceiverOnBoot"
+            android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
-
         </receiver>
-
-        <receiver android:name=".MyBroadcastReceiverAfterTime" android:exported="true">
-
+        <receiver
+            android:name=".MyBroadcastReceiverAfterTime"
+            android:exported="true">
             <intent-filter>
-                <action android:name="OPEN_AFTER_10_SECONDS"/>
+                <action android:name="OPEN_AFTER_10_SECONDS" />
             </intent-filter>
-
         </receiver>
-
-
-
 
         <activity android:name=".StartActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-
-
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps"></activity>
     </application>
 
 </manifest>
