@@ -41,11 +41,14 @@ public class CalculatorActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.buttonPlus)
-    void plus(){
-        double num1 = Double.parseDouble(editText1.getText().toString());
-        double num2 = Double.parseDouble(editText2.getText().toString());
+    void plus() {
 
-        textResult.setText("" + (num1 + num2));
+        if (!editText1.getText().toString().isEmpty() && !editText2.getText().toString().equals("")) {
+            double num1 = Double.parseDouble(editText1.getText().toString());
+            double num2 = Double.parseDouble(editText2.getText().toString());
+            textResult.setText("" + (num1 + num2));
+        } else {
+            textResult.setText("0");
+        }
     }
-
 }
