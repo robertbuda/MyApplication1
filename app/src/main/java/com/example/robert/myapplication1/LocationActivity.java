@@ -1,5 +1,6 @@
 package com.example.robert.myapplication1;
 
+import android.content.Intent;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -47,5 +48,16 @@ public class LocationActivity extends AppCompatActivity implements OnMapReadyCal
 
         mMap.addMarker(new MarkerOptions().position(brisbane).title("Brisbane").snippet("aaakhvfiugiuerhgesfniur"));
 
+        mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+
+            @Override
+            public void onInfoWindowClick(Marker marker) {
+                Intent intent = new Intent(LocationActivity.this, StartActivity.class);
+                startActivity(intent);
+
+                return;
+            }
+        });
     }
+
 }
