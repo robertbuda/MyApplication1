@@ -40,6 +40,7 @@ public class StartActivity extends AppCompatActivity {
     private Button button26;
     private Button button27;
     private Button button28;
+    private Button button29;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -270,6 +271,13 @@ public class StartActivity extends AppCompatActivity {
             }
         });
 
+        button29 = (Button) findViewById(R.id.buttonStart29);
+        button29.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(PlaceViever1Activity.class);
+            }
+        });
     }
 
     private void openActivity(Class class1) {

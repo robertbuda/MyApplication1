@@ -60,6 +60,10 @@
         <activity android:name=".CalculatorActivity" />
         <activity android:name=".MessageActivity" />
         <activity android:name=".LocationActivity" />
+        <activity android:name=".PlaceViever1Activity" />
+        <activity android:name=".PlaceViever2Activity" />
+        <activity android:name=".PlaceViever3Activity" />
+        <activity android:name=".PlaceViever4Activity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
