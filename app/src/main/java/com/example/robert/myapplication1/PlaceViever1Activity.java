@@ -40,7 +40,7 @@ public class PlaceViever1Activity extends AppCompatActivity {
     @OnClick(R.id.buttonPlaceViever)
     public void onClickButtonPlaceViever() {
         Intent intent = new Intent(this, PlaceViever2Activity.class);
-        if (!Login.getText().toString().isEmpty() && !Password.getText().toString().isEmpty()) {
+        if (Login.getText().toString().isEmpty() && Password.getText().toString().isEmpty()) {
             startActivity(intent);
         } else {
             Toast.makeText(this,"Wal sie",Toast.LENGTH_SHORT).show();
