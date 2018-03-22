@@ -20,6 +20,13 @@ public class ResourcesPlacViever {
         this.longRes = longRes;
     }
 
+    public ResourcesPlacViever(int imageRes, String titleRes) {
+        this.imageRes = imageRes;
+        this.titleRes = titleRes;
+    }
+
+
+
     public int getImageRes() {
         return imageRes;
     }

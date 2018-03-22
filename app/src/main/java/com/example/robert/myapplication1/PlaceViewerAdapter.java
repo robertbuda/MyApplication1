@@ -1,6 +1,7 @@
 package com.example.robert.myapplication1;
 
 import android.content.Context;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -23,10 +24,10 @@ public class PlaceViewerAdapter extends ArrayAdapter<ResourcesPlacViever> {
     private List<ResourcesPlacViever> resourcesList = new ArrayList<>();
 
 
-    public PlaceViewerAdapter(@NonNull Context context, List<ResourcesPlacViever> resourcesList) {
-        super(context, 0, resourcesList);
+    public PlaceViewerAdapter(@NonNull Context context, ArrayList<ResourcesPlacViever> list) {
+        super(context, 0, list);
         this.context = context;
-        this.resourcesList = resourcesList;
+        this.resourcesList = list;
     }
 
     @NonNull
@@ -38,13 +39,13 @@ public class PlaceViewerAdapter extends ArrayAdapter<ResourcesPlacViever> {
         if(listItem == null)
             listItem = LayoutInflater.from(this.context).inflate(R.layout.text_place_row,parent,false);
 
-        ResourcesPlacViever placeViewerAdapter = resourcesList.get(position);
+        ResourcesPlacViever currentResource = resourcesList.get(position);
 
         ImageView imageView = (ImageView) listItem.findViewById(R.id.imgPlaces);
-        imageView.setImageResource(placeViewerAdapter.getImageRes());
+        imageView.setImageResource(currentResource.getImageRes());
 
         TextView textView = (TextView) listItem.findViewById(R.id.txtPlaces);
-        textView.setText(placeViewerAdapter.getTitleRes());
+        textView.setText(currentResource.getTitleRes());
 
         return listItem;
 
