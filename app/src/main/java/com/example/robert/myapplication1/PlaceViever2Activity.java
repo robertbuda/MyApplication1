@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -26,8 +28,6 @@ public class PlaceViever2Activity extends AppCompatActivity {
     @BindView(R.id.listViewPlaceViewer)
     ListView listViewPlaceViewer;
 
-    private ArrayAdapter adapter ;
-    private ListView listView;
     private PlaceViewerAdapter placeViewerAdapter;
 
 
@@ -37,17 +37,6 @@ public class PlaceViever2Activity extends AppCompatActivity {
 
         setContentView(R.layout.activity_placeviever2);
         ButterKnife.bind(this);
-
-        /*String[] titles = new String[3];
-        titles[0] = resourcesPlacViever1.getTitleRes();
-        titles[1] = resourcesPlacViever2.getTitleRes();
-        titles[2] = resourcesPlacViever3.getTitleRes();
-
-        int [] photos = new int[3];
-        photos[0] = resourcesPlacViever1.getImageRes();
-        photos[1] = resourcesPlacViever2.getImageRes();
-        photos[2] = resourcesPlacViever3.getImageRes();*/
-
 
         ArrayList<ResourcesPlacViever> resourcesPlacVieversList = new ArrayList<>();
 
@@ -62,7 +51,23 @@ public class PlaceViever2Activity extends AppCompatActivity {
         placeViewerAdapter = new PlaceViewerAdapter(this,resourcesPlacVieversList );
         listViewPlaceViewer.setAdapter(placeViewerAdapter);
 
+        Intent intent = new Intent(this, PlaceViever3Activity.class);
+        listViewPlaceViewer.setOnItemClickListener((parent, view, position, id) -> goToLayout3());
+
+
     }
+
+    private void goToLayout3() {
+        Intent intent = new Intent(this, PlaceViever3Activity.class);
+        Bundle b = new Bundle();
+        b.putInt("FOTO", R.drawable.foto_android);
+        b.putString("TITLE","Title 1");
+        intent.putExtras(b);
+        startActivity(intent);
+
+
+    }
+
 
     @OnClick(R.id.buttonAppInfo)
     public void onClickButtonPlaceInfo (){
