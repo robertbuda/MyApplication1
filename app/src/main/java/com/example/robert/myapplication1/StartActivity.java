@@ -41,6 +41,8 @@ public class StartActivity extends AppCompatActivity {
     private Button button27;
     private Button button28;
     private Button button29;
+    private Button button30;
+    private Button button31;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -276,6 +278,22 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openActivity(PlaceViever1Activity.class);
+            }
+        });
+
+        button30 = (Button) findViewById(R.id.buttonStart30);
+        button30.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(RectangleDrawActivity.class);
+            }
+        });
+
+        button31 = (Button) findViewById(R.id.buttonStart31);
+        button31.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(LoginDialogActivity.class);
             }
         });
     }

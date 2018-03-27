@@ -54,7 +54,6 @@ public class PlaceViever2Activity extends AppCompatActivity {
         Intent intent = new Intent(this, PlaceViever3Activity.class);
         listViewPlaceViewer.setOnItemClickListener((parent, view, position, id) -> goToLayout3());
 
-
     }
 
     private void goToLayout3() {
@@ -64,7 +63,6 @@ public class PlaceViever2Activity extends AppCompatActivity {
         b.putString("TITLE","Title 1");
         intent.putExtras(b);
         startActivity(intent);
-
 
     }
 

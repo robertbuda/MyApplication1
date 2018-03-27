@@ -64,6 +64,8 @@
         <activity android:name=".PlaceViever2Activity" />
         <activity android:name=".PlaceViever3Activity" />
         <activity android:name=".PlaceViever4Activity" />
+        <activity android:name=".RectangleDrawActivity" />
+        <activity android:name=".LoginDialogActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
