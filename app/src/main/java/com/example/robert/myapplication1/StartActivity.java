@@ -43,6 +43,7 @@ public class StartActivity extends AppCompatActivity {
     private Button button29;
     private Button button30;
     private Button button31;
+    private Button button32;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -294,6 +295,14 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openActivity(LoginDialogActivity.class);
+            }
+        });
+
+        button32 = (Button) findViewById(R.id.buttonStart32);
+        button32.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(MyAsyncTaskActivity.class);
             }
         });
     }

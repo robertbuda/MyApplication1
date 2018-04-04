@@ -66,6 +66,7 @@
         <activity android:name=".PlaceViever4Activity" />
         <activity android:name=".RectangleDrawActivity" />
         <activity android:name=".LoginDialogActivity" />
+        <activity android:name=".MyAsyncTaskActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -115,7 +116,9 @@
         </activity>
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps">
+        </activity>
+
     </application>
 
 </manifest>
