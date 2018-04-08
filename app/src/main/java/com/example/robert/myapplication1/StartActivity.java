@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.robert.myapplication1.JobScheduler.ScheduleJobActivity;
+import com.example.robert.myapplication1.RecyclerView.MyRecyclerViewActivity;
+
 /**
  * Created by Robert on 2018-02-18.
  */
@@ -44,6 +47,9 @@ public class StartActivity extends AppCompatActivity {
     private Button button30;
     private Button button31;
     private Button button32;
+    private Button button33;
+    private Button button34;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -303,6 +309,22 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openActivity(MyAsyncTaskActivity.class);
+            }
+        });
+
+        button33 = (Button) findViewById(R.id.buttonStart33);
+        button33.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(ScheduleJobActivity.class);
+            }
+        });
+
+        button34 = (Button) findViewById(R.id.buttonStart34);
+        button34.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(MyRecyclerViewActivity.class);
             }
         });
     }

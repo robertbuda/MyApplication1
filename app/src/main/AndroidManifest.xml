@@ -67,6 +67,8 @@
         <activity android:name=".RectangleDrawActivity" />
         <activity android:name=".LoginDialogActivity" />
         <activity android:name=".MyAsyncTaskActivity" />
+        <activity android:name=".JobScheduler.ScheduleJobActivity" />
+        <activity android:name=".RecyclerView.MyRecyclerViewActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -76,6 +78,10 @@
         <service android:name="services.SecondIntentService" />
         <service android:name="services.ForegroundService" />
         <service android:name="services.BinderService" />
+        <service android:name=".JobScheduler.MyJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:exported="true"/>
+
 
         <receiver
             android:name=".MyBroadcastReceiver"

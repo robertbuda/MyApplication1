@@ -164,6 +164,22 @@
         android:drawableBottom="@drawable/ic_tag_faces_black_24px"
         />
 
+    <Button
+        android:id="@+id/buttonStart33"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Job Scheduler"
+        android:drawableBottom="@drawable/ic_tag_faces_black_24px"
+        />
+
+    <Button
+        android:id="@+id/buttonStart34"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Recycler View"
+        android:drawableBottom="@drawable/ic_tag_faces_black_24px"
+        />
+
 
 </LinearLayout>
 

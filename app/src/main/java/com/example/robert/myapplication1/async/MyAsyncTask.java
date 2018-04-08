@@ -47,7 +47,6 @@ public class MyAsyncTask extends AsyncTask<Integer,Integer,String>{
 
         view.hideProgress();
         view.showOutput(finish);
-
     }
 
 }
