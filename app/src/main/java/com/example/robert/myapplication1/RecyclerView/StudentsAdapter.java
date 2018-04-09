@@ -1,8 +1,11 @@
 package com.example.robert.myapplication1.RecyclerView;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.ColorSpace;
 import android.net.sip.SipSession;
 import android.support.annotation.NonNull;
+import android.support.v7.view.menu.MenuView;
 import android.support.v7.widget.RecyclerView;
 
 import android.support.v7.widget.RecyclerView.Adapter;
@@ -18,15 +21,13 @@ import com.example.robert.myapplication1.JobScheduler.ScheduleJobContract;
 import com.example.robert.myapplication1.R;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-
-
 public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.StudentsHolder> {
-
 
     /*@BindView(R.id.student_name)
     TextView student_name;
@@ -34,26 +35,62 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
     @BindView(R.id.student_button)
     Button student_button;*/
 
-
     public class StudentsHolder extends RecyclerView.ViewHolder {
-
 
         public TextView student_name;
         public Button student_button;
-
         public ImageView student_remove_icon;
-
+        private int selectedPosition = -1;
+        private HashMap hashMap = new HashMap();
+        private int i = 0;
 
         public StudentsHolder(View studentsHolderView) {
             super(studentsHolderView);
-
             //ButterKnife.bind(this,studentsHolderView);
 
             student_name = (TextView) itemView.findViewById(R.id.student_name);
             student_button = (Button) itemView.findViewById(R.id.student_button);
             student_remove_icon = (ImageView) itemView.findViewById(R.id.student_remove_icon);
-        }
 
+           itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if (hashMap.containsKey(getAdapterPosition())) {
+                        itemView.setBackgroundColor(Color.parseColor("#ffffff"));
+                        StudentsAdapter.this.notifyItemChanged(getAdapterPosition());
+
+                    } else {
+                        itemView.setBackgroundColor(Color.parseColor("#fdd835"));
+                        hashMap.put(i,getAdapterPosition());
+                        i++;
+                        StudentsAdapter.this.notifyItemChanged(getAdapterPosition());
+                    }
+
+
+
+                    /*int currentPosition = getAdapterPosition();
+
+                    if (currentPosition == selectedPosition) {
+                        selectedPosition = -1;
+                        notifyItemChanged(currentPosition);
+                    } else {
+                        final int previousSelected = selectedPosition;
+                        selectedPosition = -1;
+                        notifyItemChanged(previousSelected);
+                        selectedPosition = currentPosition;
+                        notifyItemChanged(currentPosition );
+                    }
+
+                    if(selectedPosition == getAdapterPosition()) {
+                        itemView.setBackgroundColor(Color.parseColor("#fdd835"));
+                    } else {
+                        itemView.setBackgroundColor(Color.parseColor("#fffffff"));
+                    }*/
+
+                }
+            });
+        }
     }
 
     private List<Student> studentList;
@@ -75,7 +112,6 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
 
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View studentsHolderView = layoutInflater.inflate(R.layout.item_student, parent, false);
-
         StudentsHolder studentsHolder = new StudentsHolder(studentsHolderView);
 
         return studentsHolder;
@@ -113,8 +149,5 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
         return studentList.size();
     }
 
-    public void onClick(View v) {
 
-
-    }
 }

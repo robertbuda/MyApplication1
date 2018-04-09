@@ -7,6 +7,7 @@ import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.ShareActionProvider;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -44,11 +45,8 @@ public class MenuActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        MenuItem menuItem = menu.findItem(R.id.main_menu_share);
-        ShareActionProvider provider = (ShareActionProvider) MenuItemCompat.getActionProvider(menuItem);
-        Intent intent = new Intent(this, StartActivity.class);
-        provider.setShareIntent(intent);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_student, menu);
         return true;
     }
     //;

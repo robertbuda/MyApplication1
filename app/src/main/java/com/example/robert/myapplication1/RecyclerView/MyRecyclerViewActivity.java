@@ -1,15 +1,23 @@
 package com.example.robert.myapplication1.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.ShareActionProvider;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.widget.ImageView;
 
+import com.example.robert.myapplication1.Call;
 import com.example.robert.myapplication1.R;
+import com.example.robert.myapplication1.StartActivity;
 
 import java.util.ArrayList;
 
@@ -23,10 +31,8 @@ public class MyRecyclerViewActivity extends AppCompatActivity {
 @BindView(R.id.studentRecyclerView)
 RecyclerView studentsRecycler;
 
-
 private StudentsAdapter studentsAdapter;
 private StudentsContract.Presenter presenter;
-
 private ArrayList<Student> students;
 
 
@@ -53,6 +59,24 @@ private ArrayList<Student> students;
         RecyclerView.ItemDecoration decoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
         studentsRecycler.addItemDecoration(decoration);
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Student.createStudentList(1);
+        studentsAdapter.notifyItemInserted(0);
+        studentsAdapter.notifyItemRangeChanged(0,studentsAdapter.getItemCount());
+        studentsRecycler.scrollToPosition(0);
+
+        return true;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_student, menu);
+
+        return true;
     }
 
 
