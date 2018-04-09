@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MotionEvent;
+import android.widget.ImageView;
 
 import com.example.robert.myapplication1.R;
 
@@ -13,13 +15,14 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
+import butterknife.OnClick;
 
 
 public class MyRecyclerViewActivity extends AppCompatActivity {
 
 @BindView(R.id.studentRecyclerView)
 RecyclerView studentsRecycler;
+
 
 private StudentsAdapter studentsAdapter;
 private StudentsContract.Presenter presenter;
@@ -49,5 +52,8 @@ private ArrayList<Student> students;
 
         RecyclerView.ItemDecoration decoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
         studentsRecycler.addItemDecoration(decoration);
+
     }
+
+
 }

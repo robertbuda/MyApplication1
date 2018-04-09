@@ -1,6 +1,7 @@
 package com.example.robert.myapplication1.RecyclerView;
 
 import android.content.Context;
+import android.net.sip.SipSession;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.robert.myapplication1.ButterKnifeActivity_ViewBinding;
@@ -39,6 +41,9 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
         public TextView student_name;
         public Button student_button;
 
+        public ImageView student_remove_icon;
+
+
         public StudentsHolder(View studentsHolderView) {
             super(studentsHolderView);
 
@@ -46,8 +51,9 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
 
             student_name = (TextView) itemView.findViewById(R.id.student_name);
             student_button = (Button) itemView.findViewById(R.id.student_button);
-
+            student_remove_icon = (ImageView) itemView.findViewById(R.id.student_remove_icon);
         }
+
     }
 
     private List<Student> studentList;
@@ -89,6 +95,17 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
         button.setText(student.isGraduated() ? "GRADUATED" : "SUSPENDED" );
         button.setEnabled(student.isGraduated());
 
+        ImageView imageView = holder.student_remove_icon;
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Student dataPosition = studentList.get(position);
+                studentList.remove(position);
+                notifyItemRemoved(position);
+                notifyItemRangeChanged(position,studentList.size());
+            }
+        });
+
     }
 
     @Override
@@ -96,5 +113,8 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
         return studentList.size();
     }
 
+    public void onClick(View v) {
 
+
+    }
 }

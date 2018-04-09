@@ -22,15 +22,18 @@ public class Student {
     }
 
 
-    private static int lastStudentId = 0;
+    static int lastStudentId = 0;
 
-    public static ArrayList<Student> createStudentList (int numStudents) {
-        ArrayList<Student> students = new ArrayList<Student>();
+    static ArrayList<Student> students = new ArrayList<Student>();
+
+    public static ArrayList<Student> createStudentList(int numStudents) {
 
         for (int i = 0 ; i < numStudents ; i++) {
             students.add(new Student("Student: " + ++lastStudentId , i < numStudents / 2 ));
         }
         return students;
     }
+
+
 
 }
