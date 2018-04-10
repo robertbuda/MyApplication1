@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.robert.myapplication1.ButterKnifeActivity_ViewBinding;
 import com.example.robert.myapplication1.JobScheduler.ScheduleJobContract;
@@ -56,15 +57,18 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
                 @Override
                 public void onClick(View v) {
 
-                    if (hashMap.containsKey(getAdapterPosition())) {
+                    if (hashMap.containsValue(selectedPosition)) {
                         itemView.setBackgroundColor(Color.parseColor("#ffffff"));
-                        StudentsAdapter.this.notifyItemChanged(getAdapterPosition());
+                        notifyItemChanged(selectedPosition);
+                        Toast.makeText(context,""+selectedPosition,Toast.LENGTH_LONG).show();
 
                     } else {
                         itemView.setBackgroundColor(Color.parseColor("#fdd835"));
-                        hashMap.put(i,getAdapterPosition());
+                        hashMap.put(i,selectedPosition);
                         i++;
-                        StudentsAdapter.this.notifyItemChanged(getAdapterPosition());
+                        notifyItemChanged(selectedPosition);
+                        Toast.makeText(context,""+selectedPosition,Toast.LENGTH_LONG).show();
+
                     }
 
 
