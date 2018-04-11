@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.example.robert.myapplication1.JobScheduler.ScheduleJobActivity;
 import com.example.robert.myapplication1.RecyclerView.MyRecyclerViewActivity;
+import com.example.robert.myapplication1.SpaceX.SpaceXActivity;
 
 /**
  * Created by Robert on 2018-02-18.
@@ -49,6 +50,7 @@ public class StartActivity extends AppCompatActivity {
     private Button button32;
     private Button button33;
     private Button button34;
+    private Button button35;
 
 
     @Override
@@ -325,6 +327,14 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openActivity(MyRecyclerViewActivity.class);
+            }
+        });
+
+        button35 = (Button) findViewById(R.id.buttonStart35);
+        button35.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(SpaceXActivity.class);
             }
         });
     }

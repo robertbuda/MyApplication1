@@ -69,6 +69,7 @@
         <activity android:name=".MyAsyncTaskActivity" />
         <activity android:name=".JobScheduler.ScheduleJobActivity" />
         <activity android:name=".RecyclerView.MyRecyclerViewActivity" />
+        <activity android:name=".SpaceX.SpaceXActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
