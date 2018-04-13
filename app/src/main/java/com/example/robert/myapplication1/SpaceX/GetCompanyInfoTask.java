@@ -21,6 +21,9 @@ import timber.log.Timber;
 public class GetCompanyInfoTask extends AsyncTask<String, Void, String> {
 
 
+    private CompanyInfo parseResponseToModel (String result) {
+        return parseResponseToModel(result);
+    }
 
 
     @Override

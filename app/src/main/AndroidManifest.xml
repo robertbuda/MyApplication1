@@ -12,6 +12,7 @@
         android:name="android.permission.CALL_PHONE"
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.INTERNET" />
+
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -70,6 +71,7 @@
         <activity android:name=".JobScheduler.ScheduleJobActivity" />
         <activity android:name=".RecyclerView.MyRecyclerViewActivity" />
         <activity android:name=".SpaceX.SpaceXActivity" />
+        <activity android:name=".retrofit.RocketActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

@@ -9,6 +9,7 @@ import android.widget.Button;
 import com.example.robert.myapplication1.JobScheduler.ScheduleJobActivity;
 import com.example.robert.myapplication1.RecyclerView.MyRecyclerViewActivity;
 import com.example.robert.myapplication1.SpaceX.SpaceXActivity;
+import com.example.robert.myapplication1.retrofit.RocketActivity;
 
 /**
  * Created by Robert on 2018-02-18.
@@ -51,6 +52,7 @@ public class StartActivity extends AppCompatActivity {
     private Button button33;
     private Button button34;
     private Button button35;
+    private Button button36;
 
 
     @Override
@@ -335,6 +337,14 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openActivity(SpaceXActivity.class);
+            }
+        });
+
+        button36 = (Button) findViewById(R.id.buttonStart36);
+        button36.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(RocketActivity.class);
             }
         });
     }
