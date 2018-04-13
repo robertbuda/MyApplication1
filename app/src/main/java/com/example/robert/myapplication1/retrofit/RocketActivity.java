@@ -3,11 +3,16 @@ package com.example.robert.myapplication1.retrofit;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 
 import com.example.robert.myapplication1.R;
+import com.example.robert.myapplication1.RecyclerView.Student;
+import com.example.robert.myapplication1.RecyclerView.StudentsAdapter;
 import com.google.gson.Gson;
 
 import java.util.List;
@@ -22,12 +27,16 @@ public class RocketActivity extends AppCompatActivity implements RocketContract.
 
 
     private RocketContract.Presenter presenter;
+    private List <Rocket> rocket;
 
     @BindView(R.id.btRocketReset)
     Button btRocketReset;
 
     @BindView(R.id.progressBarRocket)
     ProgressBar progressBarRocket;
+
+    @BindView(R.id.rocket_recycler_view)
+    RecyclerView rocket_recycler_view;
 
 
     @Override
@@ -49,6 +58,7 @@ public class RocketActivity extends AppCompatActivity implements RocketContract.
                 // create Api interface instance
                 retrofit.create(Api.class)
         );
+
     }
 
 
@@ -68,7 +78,17 @@ public class RocketActivity extends AppCompatActivity implements RocketContract.
     }
 
     public void showData(List<Rocket> body){
+        rocket = body;
+        RocketAdapter rocketAdapter = new RocketAdapter(rocket,this);
 
+        rocket_recycler_view.setLayoutManager(new LinearLayoutManager(this));
+        rocket_recycler_view.setAdapter(rocketAdapter);
+
+        RecyclerView.ItemDecoration decoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+        rocket_recycler_view.addItemDecoration(decoration);
     }
+
+
+
 
 }
