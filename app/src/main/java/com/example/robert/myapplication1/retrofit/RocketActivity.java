@@ -61,7 +61,6 @@ public class RocketActivity extends AppCompatActivity implements RocketContract.
 
     }
 
-
     @OnClick(R.id.btRocketReset)
     public void restartGetRocket() {
         presenter.refreshRocketData();
@@ -77,6 +76,7 @@ public class RocketActivity extends AppCompatActivity implements RocketContract.
         btRocketReset.setVisibility(View.VISIBLE);
     }
 
+
     public void showData(List<Rocket> body){
         rocket = body;
         RocketAdapter rocketAdapter = new RocketAdapter(rocket,this);
@@ -87,8 +87,5 @@ public class RocketActivity extends AppCompatActivity implements RocketContract.
         RecyclerView.ItemDecoration decoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
         rocket_recycler_view.addItemDecoration(decoration);
     }
-
-
-
 
 }

@@ -30,6 +30,7 @@ public class RocketAdapter extends RecyclerView.Adapter<RocketAdapter.RocketHold
     }
 
     private List<Rocket> rocketList;
+
     private Context context;
 
     public RocketAdapter(List<Rocket> rocketList, Context context) {
@@ -50,10 +51,14 @@ public class RocketAdapter extends RecyclerView.Adapter<RocketAdapter.RocketHold
 
     @Override
     public void onBindViewHolder(@NonNull RocketAdapter.RocketHolder holder, int position) {
-
         Rocket rocket = rocketList.get(position);
         TextView textView = holder.rocket_id;
-        textView.setText(rocket.id);
+        textView.setText(rocket.id + " - "+ rocket.name + " - " + rocket.type + "\n\n" + rocket.description + "\n\n"
+                + rocket.payloadWeights.get(position).id + "\n"
+                + rocket.payloadWeights.get(position).name + "\n"
+                + rocket.payloadWeights.get(position).kg + "\n"
+                + rocket.payloadWeights.get(position).lb
+        );
 
     }
 

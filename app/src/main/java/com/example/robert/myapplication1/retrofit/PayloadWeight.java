@@ -6,4 +6,6 @@ public class PayloadWeight {
     public String name;
     public Integer kg;
     public Integer lb;
+
+
 }

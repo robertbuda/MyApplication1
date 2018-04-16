@@ -41,8 +41,6 @@ public class RocketPresenter implements RocketContract.Presenter, LifecycleObser
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     private void onCreate() {
 
-
-
         /*api.getCompanyInfo().enqueue(new Callback<CompanyInfo>() {
             @Override
             public void onResponse(Call<CompanyInfo> call, Response<CompanyInfo> response) {
@@ -67,6 +65,7 @@ public class RocketPresenter implements RocketContract.Presenter, LifecycleObser
             refreshRocketData();
     }
 
+
     @Override
     public void refreshRocketData() {
         api.getRocketsInfo().enqueue(new Callback<List<Rocket>>() {
@@ -84,7 +83,6 @@ public class RocketPresenter implements RocketContract.Presenter, LifecycleObser
                     view.setButtonRocketVisible();
                 }
             }
-
 
             @Override
             public void onFailure(Call<List<Rocket>> call, Throwable t) {

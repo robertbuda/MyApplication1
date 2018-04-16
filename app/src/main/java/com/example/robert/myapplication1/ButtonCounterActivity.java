@@ -1,5 +1,6 @@
 package com.example.robert.myapplication1;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -35,14 +36,15 @@ public class ButtonCounterActivity extends AppCompatActivity {
 
     @OnClick(R.id.buttonPlusCounter)
     public void countPlusOnClick(){
-        counter++;
-        textButtonCounter.setText("" + counter);
+        counter = counter + 2;
+        textButtonCounter.setText("suma: " + counter);
+        buttonPlusCounter.setBackgroundColor(Color.parseColor("#fdff58"));
     }
 
     @OnClick(R.id.buttonMinusCounter)
     public void countMinusOnClick(){
         counter--;
-        textButtonCounter.setText("" + counter);
+        textButtonCounter.setText("suma: " + counter);
     }
 
 

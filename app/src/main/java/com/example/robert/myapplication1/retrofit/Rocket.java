@@ -16,9 +16,20 @@ public class Rocket {
     @SerializedName("payload_weights")
     @Expose
     public List<PayloadWeight> payloadWeights = new ArrayList<>();
+
+    public List<PayloadWeight> getPayloadWeights() {
+        return payloadWeights;
+    }
+
     public String description;
 
     @Expose(serialize = false)
     String blebleble;
 
+    @Override
+    public String toString() {
+        return "Rocket{" +
+                "payloadWeights=" + payloadWeights +
+                '}';
+    }
 }
