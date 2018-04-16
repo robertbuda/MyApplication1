@@ -17,20 +17,17 @@ import java.util.List;
 public class RocketAdapter extends RecyclerView.Adapter<RocketAdapter.RocketHolder> {
 
 
-
     public class RocketHolder extends RecyclerView.ViewHolder {
 
         public TextView rocket_id;
 
         public RocketHolder(View itemView) {
             super(itemView);
-
             rocket_id = (TextView) itemView.findViewById(R.id.rocket_id);
         }
     }
 
     private List<Rocket> rocketList;
-
     private Context context;
 
     public RocketAdapter(List<Rocket> rocketList, Context context) {
@@ -54,10 +51,10 @@ public class RocketAdapter extends RecyclerView.Adapter<RocketAdapter.RocketHold
         Rocket rocket = rocketList.get(position);
         TextView textView = holder.rocket_id;
         textView.setText(rocket.id + " - "+ rocket.name + " - " + rocket.type + "\n\n" + rocket.description + "\n\n"
-                + rocket.payloadWeights.get(position).id + "\n"
-                + rocket.payloadWeights.get(position).name + "\n"
-                + rocket.payloadWeights.get(position).kg + "\n"
-                + rocket.payloadWeights.get(position).lb
+                + "id: " + rocket.payloadWeights.get(position).id + "\n"
+                + "name: " + rocket.payloadWeights.get(position).name + "\n"
+                + "kg: " + rocket.payloadWeights.get(position).kg + "\n"
+                + "lb: " + rocket.payloadWeights.get(position).lb
         );
 
     }

@@ -56,8 +56,11 @@ dependencies {
 
     //RetroFit
 
-    compile 'com.squareup.retrofit2:retrofit:2.4.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+
+    //RX java retrofit Adapter
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
 
 
 }

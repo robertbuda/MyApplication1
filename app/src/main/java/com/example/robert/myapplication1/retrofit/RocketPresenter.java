@@ -27,9 +27,6 @@ public class RocketPresenter implements RocketContract.Presenter, LifecycleObser
 
     private RocketContract.View view;
     private Api api;
-    private CompanyInfo companyInfo;
-    private Context context;
-
 
 
     public RocketPresenter(RocketContract.View view, Api api) {
@@ -78,7 +75,6 @@ public class RocketPresenter implements RocketContract.Presenter, LifecycleObser
                     view.setButtonRocketVisible();
 
                 } else {
-
                     Timber.e(response.message());
                     view.setButtonRocketVisible();
                 }

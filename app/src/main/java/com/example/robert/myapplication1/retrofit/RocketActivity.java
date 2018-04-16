@@ -69,18 +69,16 @@ public class RocketActivity extends AppCompatActivity implements RocketContract.
 
 
     public void setProgressBarInvisible(){
-        progressBarRocket.setVisibility(View.GONE);
+        progressBarRocket.setVisibility(View.INVISIBLE);
     }
 
     public void setButtonRocketVisible(){
         btRocketReset.setVisibility(View.VISIBLE);
     }
 
-
     public void showData(List<Rocket> body){
         rocket = body;
         RocketAdapter rocketAdapter = new RocketAdapter(rocket,this);
-
         rocket_recycler_view.setLayoutManager(new LinearLayoutManager(this));
         rocket_recycler_view.setAdapter(rocketAdapter);
 
