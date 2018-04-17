@@ -18,6 +18,11 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.internal.operators.flowable.FlowableAll;
+import io.reactivex.schedulers.Schedulers;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -27,6 +32,8 @@ public class RocketPresenter implements RocketContract.Presenter, LifecycleObser
 
     private RocketContract.View view;
     private Api api;
+    private CompositeDisposable compositeDisposable = new CompositeDisposable();
+    private Rocket rocket;
 
 
     public RocketPresenter(RocketContract.View view, Api api) {
@@ -65,15 +72,31 @@ public class RocketPresenter implements RocketContract.Presenter, LifecycleObser
 
     @Override
     public void refreshRocketData() {
-        api.getRocketsInfo().enqueue(new Callback<List<Rocket>>() {
+        compositeDisposable.add(api.getRocketsInfo()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        rockets -> {
+
+                            view.showData(rockets);
+                            view.setProgressBarInvisible();
+                            view.setButtonRocketVisible();
+                        },
+                        throwable -> {
+                            view.setButtonRocketVisible();
+                        },
+                () -> {
+
+        }));
+
+        /*api.getRocketsInfo().enqueue(new Observable<List<Rocket>>() {
             @Override
-            public void onResponse(Call<List<Rocket>> call, Response<List<Rocket>> response) {
+            public void onResponse(Observable<List<Rocket>> call, Response<List<Rocket>> response) {
                 if (response.isSuccessful()) {
                     // todo show List<Rocket>
                     view.showData(response.body());
                     view.setProgressBarInvisible();
                     view.setButtonRocketVisible();
-
                 } else {
                     Timber.e(response.message());
                     view.setButtonRocketVisible();
@@ -81,12 +104,13 @@ public class RocketPresenter implements RocketContract.Presenter, LifecycleObser
             }
 
             @Override
-            public void onFailure(Call<List<Rocket>> call, Throwable t) {
+            public void onFailure(Observable<List<Rocket>> call, Throwable t) {
                 Timber.e(t);
                 view.setButtonRocketVisible();
             }
-        });
+        });*/
     }
+
 }
 
 

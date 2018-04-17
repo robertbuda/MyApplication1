@@ -6,6 +6,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Rocket {
@@ -13,6 +14,7 @@ public class Rocket {
     public String id;
     public String name;
     public String type;
+
     @SerializedName("payload_weights")
     @Expose
     public List<PayloadWeight> payloadWeights = new ArrayList<>();
@@ -26,10 +28,15 @@ public class Rocket {
     @Expose(serialize = false)
     String blebleble;
 
-    @Override
-    public String toString() {
-        return "Rocket{" +
-                "payloadWeights=" + payloadWeights +
-                '}';
+    public String launch_year;
+
+    public String launch_date_local;
+
+    @SerializedName("links")
+    private Link link;
+
+    public Link getLink() {
+        return link;
     }
+
 }
