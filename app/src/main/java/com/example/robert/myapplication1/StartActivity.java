@@ -20,6 +20,7 @@ import com.example.robert.myapplication1.simpleworks.Constraint;
 import com.example.robert.myapplication1.simpleworks.DownloadActivity;
 import com.example.robert.myapplication1.simpleworks.EmailActivity;
 import com.example.robert.myapplication1.simpleworks.ForegroundActivity;
+import com.example.robert.myapplication1.simpleworks.InputLayoutActivity;
 import com.example.robert.myapplication1.simpleworks.LifeTimeActivity;
 import com.example.robert.myapplication1.simpleworks.Linear;
 import com.example.robert.myapplication1.simpleworks.LoginDialogActivity;
@@ -73,6 +74,7 @@ public class StartActivity extends AppCompatActivity {
     private Button button34;
     private Button button35;
     private Button button36;
+    private Button button37;
 
 
     @Override
@@ -365,6 +367,14 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openActivity(RocketActivity.class);
+            }
+        });
+
+        button37 = (Button) findViewById(R.id.buttonStart37);
+        button37.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(InputLayoutActivity.class);
             }
         });
     }

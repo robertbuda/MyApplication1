@@ -73,6 +73,7 @@
         <activity android:name=".SpaceX.SpaceXActivity" />
         <activity android:name=".retrofit.RocketActivity" />
         <activity android:name=".retrofit.RocketStartsActivity" />
+        <activity android:name=".simpleworks.InputLayoutActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
