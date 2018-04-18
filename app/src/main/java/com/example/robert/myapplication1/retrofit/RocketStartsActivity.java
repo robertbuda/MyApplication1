@@ -40,7 +40,6 @@ public class RocketStartsActivity extends AppCompatActivity implements RocketCon
         Intent intent = getIntent();
         String id = intent.getStringExtra("ROCKET_ID");
 
-
         RxJava2CallAdapterFactory rxAdapter =
                 RxJava2CallAdapterFactory.createWithScheduler(io.reactivex.schedulers.Schedulers.io());
 
@@ -51,27 +50,22 @@ public class RocketStartsActivity extends AppCompatActivity implements RocketCon
                 .build();
 
         presenter = new RocketStartsPresenter(this, retrofit.create(Api.class),id);
-
     }
 
     public void showData(List<Rocket> rocket){
-
         RocketStartsAdapter rocketAdapter = new RocketStartsAdapter(rocket,this);
         rocket_starts_recycler_view.setLayoutManager(new LinearLayoutManager(this));
         rocket_starts_recycler_view.setAdapter(rocketAdapter);
 
         RecyclerView.ItemDecoration decoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
         rocket_starts_recycler_view.addItemDecoration(decoration);
-
     }
 
     @Override
     public void setButtonRocketVisible() {
-
     }
 
     @Override
     public void setProgressBarInvisible() {
-
     }
 }

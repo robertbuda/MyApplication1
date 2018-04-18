@@ -25,6 +25,6 @@ public interface Api {
     Flowable<List<Rocket>> getRocketStartsInfo();
 
     @GET("launches")
-    Single<List<Rocket>> getAllLaunchesForRocket(@Query("rocket_id") String rocketId);
+    Single<List<Rocket>> getAllLaunchesForRocketId(@Query("rocket_id") String rocketId);
 
 }

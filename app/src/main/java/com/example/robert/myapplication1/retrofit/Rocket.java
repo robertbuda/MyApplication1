@@ -15,6 +15,9 @@ public class Rocket {
     public String name;
     public String type;
 
+    public static final String DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";
+    public static final String DATE_OUTPUT = "yyyy MM dd";
+
     @SerializedName("payload_weights")
     @Expose
     public List<PayloadWeight> payloadWeights = new ArrayList<>();
@@ -29,14 +32,23 @@ public class Rocket {
     String blebleble;
 
     public String launch_year;
-
-    public String launch_date_local;
+    //public String launch_date_local;
 
     @SerializedName("links")
     private Link link;
-
     public Link getLink() {
         return link;
+    }
+
+    @SerializedName("launch_date_local")
+    private String date;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
 }

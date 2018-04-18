@@ -32,18 +32,12 @@ public class RocketStartsPresenter implements RocketContract.Presenter, Lifecycl
 
     public void refreshRocketData () {
         compositeDisposable.add(
-                api.getAllLaunchesForRocket(id)
+                api.getAllLaunchesForRocketId(id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
-
                         launches -> view.showData(launches),
                         throwable -> Timber.e(throwable)
                         ));
-
-    }
-
-    public String getId(String id) {
-        return id;
     }
 }

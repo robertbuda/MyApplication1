@@ -13,9 +13,21 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.model.GlideUrl;
 import com.example.robert.myapplication1.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class RocketStartsAdapter extends RecyclerView.Adapter<RocketStartsAdapter.RocketStartsHolder> {
+
+    private List<Rocket> rocketStartList;
+    private Context context;
+
+    public RocketStartsAdapter(List<Rocket> rocketStartList, Context context) {
+        this.rocketStartList = rocketStartList;
+        this.context = context;
+    }
+
 
     public class RocketStartsHolder extends RecyclerView.ViewHolder {
 
@@ -29,17 +41,10 @@ public class RocketStartsAdapter extends RecyclerView.Adapter<RocketStartsAdapte
         }
     }
 
-    private List<Rocket> rocketStartList;
-    private Context context;
-
-    public RocketStartsAdapter(List<Rocket> rocketStartList, Context context) {
-        this.rocketStartList = rocketStartList;
-        this.context = context;
-    }
-
     @NonNull
     @Override
     public RocketStartsHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View rocketHolderView = layoutInflater.inflate(R.layout.item_rocket_starts, parent, false);
         RocketStartsHolder rocketStartsHolder = new RocketStartsAdapter.RocketStartsHolder(rocketHolderView);
@@ -49,9 +54,8 @@ public class RocketStartsAdapter extends RecyclerView.Adapter<RocketStartsAdapte
 
     @Override
     public void onBindViewHolder(@NonNull RocketStartsHolder holder, int position) {
+
         Rocket rocket = rocketStartList.get(position);
-        TextView textView = holder.rocket_id;
-        textView.setText(rocket.launch_year + "\n" + rocket.launch_date_local);
 
 
         ImageView imageView = holder.image;
@@ -59,9 +63,17 @@ public class RocketStartsAdapter extends RecyclerView.Adapter<RocketStartsAdapte
                 .load(rocket.getLink().getImageUrl())
                 .into(imageView);
 
+        SimpleDateFormat inputFormat = new SimpleDateFormat(Rocket.DATE_FORMAT, Locale.getDefault());
+        SimpleDateFormat outputFormat = new SimpleDateFormat(Rocket.DATE_OUTPUT, Locale.getDefault());
 
+        try {
+            Date date = inputFormat.parse(rocket.getDate());
+            TextView textView = holder.rocket_id;
+            textView.setText("Launch year: " + rocket.launch_year + "\n\nDate: " + outputFormat.format(date));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-
 
     @Override
     public int getItemCount() {
