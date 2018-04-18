@@ -40,16 +40,6 @@ private ArrayList<Student> students;
 
         setupRecycler();
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Student.createStudentList(1);
-                studentsAdapter.notifyItemInserted(0);
-                studentsAdapter.notifyItemRangeChanged(0,studentsAdapter.getItemCount());
-                studentsRecycler.scrollToPosition(0);
-            }
-        });
 
     }
 
