@@ -7,7 +7,7 @@
 
 
     <view
-        class="com.example.robert.myapplication1.RectangleDrawView"
+        class="com.example.robert.myapplication1.simpleworks.RectangleDrawView"
         id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

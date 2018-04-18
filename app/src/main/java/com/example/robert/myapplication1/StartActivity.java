@@ -9,7 +9,27 @@ import android.widget.Button;
 import com.example.robert.myapplication1.JobScheduler.ScheduleJobActivity;
 import com.example.robert.myapplication1.RecyclerView.MyRecyclerViewActivity;
 import com.example.robert.myapplication1.SpaceX.SpaceXActivity;
+import com.example.robert.myapplication1.broadcast.BroadcastActivity;
+import com.example.robert.myapplication1.broadcast.BroadcastBootAvtivity;
+import com.example.robert.myapplication1.broadcast.BroadcastRegAppActivity;
+import com.example.robert.myapplication1.fragment.FragmentActivity;
+import com.example.robert.myapplication1.fragment.FragmentDynamicActivity;
 import com.example.robert.myapplication1.retrofit.RocketActivity;
+import com.example.robert.myapplication1.simpleworks.Call;
+import com.example.robert.myapplication1.simpleworks.Constraint;
+import com.example.robert.myapplication1.simpleworks.DownloadActivity;
+import com.example.robert.myapplication1.simpleworks.EmailActivity;
+import com.example.robert.myapplication1.simpleworks.ForegroundActivity;
+import com.example.robert.myapplication1.simpleworks.LifeTimeActivity;
+import com.example.robert.myapplication1.simpleworks.Linear;
+import com.example.robert.myapplication1.simpleworks.LoginDialogActivity;
+import com.example.robert.myapplication1.simpleworks.MainActivity;
+import com.example.robert.myapplication1.simpleworks.NotificationActivity;
+import com.example.robert.myapplication1.simpleworks.RectangleDrawActivity;
+import com.example.robert.myapplication1.simpleworks.Relative;
+import com.example.robert.myapplication1.simpleworks.Snow;
+import com.example.robert.myapplication1.simpleworks.Weather;
+import com.example.robert.myapplication1.simpleworks.WebViewActivity1;
 
 /**
  * Created by Robert on 2018-02-18.

@@ -1,26 +1,18 @@
 package services;
 
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.app.TaskStackBuilder;
-import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
-import android.widget.Button;
 
-import com.example.robert.myapplication1.Call;
-import com.example.robert.myapplication1.ForegroundActivity;
 import com.example.robert.myapplication1.R;
-import com.example.robert.myapplication1.Snow;
+import com.example.robert.myapplication1.simpleworks.Snow;
 import com.example.robert.myapplication1.StartActivity;
 
 import timber.log.Timber;

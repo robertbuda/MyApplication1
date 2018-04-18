@@ -6,7 +6,7 @@
     android:weightSum="2">
 
 
-    <fragment android:name="com.example.robert.myapplication1.FirstFragment"
+    <fragment android:name="com.example.robert.myapplication1.fragment.FirstFragment"
         android:id="@+id/fragmentId1"
         android:layout_weight="1"
         android:layout_width="0dp"
@@ -14,7 +14,7 @@
 
     <fragment
         android:id="@+id/fragmentId2"
-        android:name="com.example.robert.myapplication1.SecondFragment"
+        android:name="com.example.robert.myapplication1.fragment.SecondFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1" />

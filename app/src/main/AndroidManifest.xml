@@ -18,42 +18,42 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
-        android:name=".SdaApp"
+        android:name=".simpleworks.SdaApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" />
-        <activity android:name=".SecondActivity" />
-        <activity android:name=".CameraActivity" />
-        <activity android:name=".Scroll" />
-        <activity android:name=".Constraint" />
-        <activity android:name=".Linear" />
-        <activity android:name=".Relative" />
+        <activity android:name=".simpleworks.MainActivity" />
+        <activity android:name=".fragment.SecondActivity" />
+        <activity android:name=".simpleworks.CameraActivity" />
+        <activity android:name=".simpleworks.Scroll" />
+        <activity android:name=".simpleworks.Constraint" />
+        <activity android:name=".simpleworks.Linear" />
+        <activity android:name=".simpleworks.Relative" />
         <activity
-            android:name=".Snow"
+            android:name=".simpleworks.Snow"
             android:parentActivityName=".StartActivity" />
-        <activity android:name=".Weather" />
-        <activity android:name=".Call" />
-        <activity android:name=".Call2" />
-        <activity android:name=".WebViewActivity1" />
-        <activity android:name=".WebViewActivity2" />
-        <activity android:name=".EmailActivity" />
-        <activity android:name=".LifeTimeActivity" />
+        <activity android:name=".simpleworks.Weather" />
+        <activity android:name=".simpleworks.Call" />
+        <activity android:name=".simpleworks.Call2" />
+        <activity android:name=".simpleworks.WebViewActivity1" />
+        <activity android:name=".simpleworks.WebViewActivity2" />
+        <activity android:name=".simpleworks.EmailActivity" />
+        <activity android:name=".simpleworks.LifeTimeActivity" />
         <activity android:name=".MenuActivity" />
         <activity android:name=".ButterKnifeActivity" />
-        <activity android:name=".FragmentActivity" />
-        <activity android:name=".FragmentDynamicActivity" />
-        <activity android:name=".BroadcastActivity" />
-        <activity android:name=".BroadcastBootAvtivity" />
-        <activity android:name=".BroadcastInAppActivity" />
-        <activity android:name=".BroadcastRegAppActivity" />
-        <activity android:name=".NotificationActivity" />
+        <activity android:name=".fragment.FragmentActivity" />
+        <activity android:name=".fragment.FragmentDynamicActivity" />
+        <activity android:name=".broadcast.BroadcastActivity" />
+        <activity android:name=".broadcast.BroadcastBootAvtivity" />
+        <activity android:name=".broadcast.BroadcastInAppActivity" />
+        <activity android:name=".broadcast.BroadcastRegAppActivity" />
+        <activity android:name=".simpleworks.NotificationActivity" />
         <activity android:name=".ServiceActivity" />
-        <activity android:name=".DownloadActivity" />
-        <activity android:name=".ForegroundActivity" />
+        <activity android:name=".simpleworks.DownloadActivity" />
+        <activity android:name=".simpleworks.ForegroundActivity" />
         <activity android:name=".BinderServiceActivity" />
         <activity android:name=".ButtonCounterActivity" />
         <activity android:name=".SensorListActivity" />
@@ -63,10 +63,10 @@
         <activity android:name=".LocationActivity" />
         <activity android:name=".PlaceViever1Activity" />
         <activity android:name=".PlaceViever2Activity" />
-        <activity android:name=".PlaceViever3Activity" />
-        <activity android:name=".PlaceViever4Activity" />
-        <activity android:name=".RectangleDrawActivity" />
-        <activity android:name=".LoginDialogActivity" />
+        <activity android:name=".placeviewer.PlaceViever3Activity" />
+        <activity android:name=".placeviewer.PlaceViever4Activity" />
+        <activity android:name=".simpleworks.RectangleDrawActivity" />
+        <activity android:name=".simpleworks.LoginDialogActivity" />
         <activity android:name=".MyAsyncTaskActivity" />
         <activity android:name=".JobScheduler.ScheduleJobActivity" />
         <activity android:name=".RecyclerView.MyRecyclerViewActivity" />
@@ -88,7 +88,7 @@
 
 
         <receiver
-            android:name=".MyBroadcastReceiver"
+            android:name=".broadcast.MyBroadcastReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.AIRPLANE_MODE" />
@@ -96,21 +96,21 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name=".MyBroadcastAppReceiver"
+            android:name=".broadcast.MyBroadcastAppReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="SENDING" />
             </intent-filter>
         </receiver>
         <receiver
-            android:name=".MyBroadcastReceiverOnBoot"
+            android:name=".broadcast.MyBroadcastReceiverOnBoot"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
         <receiver
-            android:name=".MyBroadcastReceiverAfterTime"
+            android:name=".broadcast.MyBroadcastReceiverAfterTime"
             android:exported="true">
             <intent-filter>
                 <action android:name="OPEN_AFTER_10_SECONDS" />
@@ -125,7 +125,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MapsActivity"
+            android:name=".simpleworks.MapsActivity"
             android:label="@string/title_activity_maps">
         </activity>
 
