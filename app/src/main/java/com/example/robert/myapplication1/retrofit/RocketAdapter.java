@@ -36,10 +36,8 @@ public class RocketAdapter extends RecyclerView.Adapter<RocketAdapter.RocketHold
         }
     }
 
-
     private List<Rocket> rocketList;
     private Context context;
-
 
     public RocketAdapter(List<Rocket> rocketList, Context context) {
         this.rocketList = rocketList;

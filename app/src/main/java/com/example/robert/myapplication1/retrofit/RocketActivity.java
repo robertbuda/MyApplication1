@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -43,12 +44,15 @@ public class RocketActivity extends AppCompatActivity implements RocketContract.
     @BindView(R.id.rocket_recycler_view)
     RecyclerView rocket_recycler_view;
 
+    private CardView cardView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rocket);
         ButterKnife.bind(this);
+
+        cardView = (CardView) findViewById(R.id.card_view);
 
         RxJava2CallAdapterFactory rxAdapter =
                 RxJava2CallAdapterFactory.createWithScheduler(io.reactivex.schedulers.Schedulers.io());
