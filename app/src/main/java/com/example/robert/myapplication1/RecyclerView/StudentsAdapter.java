@@ -32,11 +32,7 @@ import butterknife.ButterKnife;
 
 public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.StudentsHolder> {
 
-    /*@BindView(R.id.student_name)
-    TextView student_name;
 
-    @BindView(R.id.student_button)
-    Button student_button;*/
 
     public class StudentsHolder extends RecyclerView.ViewHolder {
 
@@ -50,7 +46,6 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
 
         public StudentsHolder(View studentsHolderView) {
             super(studentsHolderView);
-            //ButterKnife.bind(this,studentsHolderView);
 
             student_name = (TextView) itemView.findViewById(R.id.student_name);
             student_button = (Button) itemView.findViewById(R.id.student_button);
@@ -77,7 +72,8 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
         }
     }
 
-    private List<Student> studentList;
+
+    private List<Student> studentList = new ArrayList<>();
     private Context context;
 
     public StudentsAdapter(List<Student> studentList, Context context) {
@@ -117,7 +113,6 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Student dataPosition = studentList.get(position);
                 studentList.remove(position);
                 notifyItemRemoved(position);
                 notifyItemRangeChanged(position, studentList.size());
@@ -132,7 +127,16 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
     }
 
 
-    public void addCancelled () {
 
+
+    public void updateStudentsList(List<Student> students) {
+        studentList.addAll(students);
+        notifyDataSetChanged();
+    }
+
+    public void addStudentToAdapter() {
+        studentList.add(0,new Student("New Student",true));
+        notifyItemInserted(0);
+        notifyItemRangeChanged(0,getItemCount());
     }
 }
