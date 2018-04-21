@@ -11,6 +11,7 @@ public class Presenter implements Contract.presenter {
 
     @Override
     public void clickedToastButton() {
-        view.showToastMessage();
+
+        view.showToastMessage(1);
     }
 }

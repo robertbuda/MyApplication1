@@ -4,7 +4,7 @@ public interface Contract {
 
     interface view {
 
-        void showToastMessage();
+        void showToastMessage(int position);
     }
 
     interface presenter {
