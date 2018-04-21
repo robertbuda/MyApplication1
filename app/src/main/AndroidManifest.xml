@@ -74,6 +74,7 @@
         <activity android:name=".retrofit.RocketActivity" />
         <activity android:name=".retrofit.RocketStartsActivity" />
         <activity android:name=".simpleworks.InputLayoutActivity" />
+        <activity android:name=".simplecasemvp.SimpleCaseMvpActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -129,6 +130,7 @@
             android:name=".simpleworks.MapsActivity"
             android:label="@string/title_activity_maps">
         </activity>
+        <activity android:name=".simplecasemvp.SimpleCaseMvpActivity" />
 
     </application>
 

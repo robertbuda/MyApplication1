@@ -39,8 +39,6 @@ private ArrayList<Student> students;
         ButterKnife.bind(this);
 
         setupRecycler();
-
-
     }
 
 
@@ -76,5 +74,24 @@ private ArrayList<Student> students;
         return true;
     }
 
+    public void showUndoCancel () {
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
+                        .setAction("UNDO", new MyUndoListener())
+                        .show();
+            }
+        });
+
+    }
+
+    public class MyUndoListener implements View.OnClickListener{
+        @Override
+        public void onClick(View v) {
+            studentsAdapter.addCancelled();
+        }
+    }
 
 }

@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.example.robert.myapplication1.RecyclerView.ResourcesPlacViever;
+import com.example.robert.myapplication1.placeviewer.ResourcesPlacViever;
 import com.example.robert.myapplication1.placeviewer.PlaceViever3Activity;
 import com.example.robert.myapplication1.placeviewer.PlaceViever4Activity;
 import com.example.robert.myapplication1.placeviewer.PlaceViewerAdapter;

@@ -1,4 +1,4 @@
-package com.example.robert.myapplication1.RecyclerView;
+package com.example.robert.myapplication1.placeviewer;
 
 /**
  * Created by Robert on 2018-03-21.

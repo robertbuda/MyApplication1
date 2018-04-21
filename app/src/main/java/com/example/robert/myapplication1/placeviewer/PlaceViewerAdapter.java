@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.robert.myapplication1.R;
-import com.example.robert.myapplication1.RecyclerView.ResourcesPlacViever;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -5,6 +5,8 @@ import android.graphics.Color;
 import android.graphics.ColorSpace;
 import android.net.sip.SipSession;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.view.menu.MenuView;
 import android.support.v7.widget.RecyclerView;
 
@@ -45,6 +47,7 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
         private HashMap hashMap = new HashMap();
         private int i = 0;
 
+
         public StudentsHolder(View studentsHolderView) {
             super(studentsHolderView);
             //ButterKnife.bind(this,studentsHolderView);
@@ -53,45 +56,22 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
             student_button = (Button) itemView.findViewById(R.id.student_button);
             student_remove_icon = (ImageView) itemView.findViewById(R.id.student_remove_icon);
 
-           itemView.setOnClickListener(new View.OnClickListener() {
+            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
                     if (hashMap.containsValue(selectedPosition)) {
                         itemView.setBackgroundColor(Color.parseColor("#ffffff"));
                         notifyItemChanged(selectedPosition);
-                        Toast.makeText(context,""+selectedPosition,Toast.LENGTH_LONG).show();
+                        Toast.makeText(context, "" + selectedPosition, Toast.LENGTH_LONG).show();
 
                     } else {
                         itemView.setBackgroundColor(Color.parseColor("#fdd835"));
-                        hashMap.put(i,selectedPosition);
+                        hashMap.put(i, selectedPosition);
                         i++;
                         notifyItemChanged(selectedPosition);
-                        Toast.makeText(context,""+selectedPosition,Toast.LENGTH_LONG).show();
-
+                        Toast.makeText(context, "" + selectedPosition, Toast.LENGTH_LONG).show();
                     }
-
-
-
-                    /*int currentPosition = getAdapterPosition();
-
-                    if (currentPosition == selectedPosition) {
-                        selectedPosition = -1;
-                        notifyItemChanged(currentPosition);
-                    } else {
-                        final int previousSelected = selectedPosition;
-                        selectedPosition = -1;
-                        notifyItemChanged(previousSelected);
-                        selectedPosition = currentPosition;
-                        notifyItemChanged(currentPosition );
-                    }
-
-                    if(selectedPosition == getAdapterPosition()) {
-                        itemView.setBackgroundColor(Color.parseColor("#fdd835"));
-                    } else {
-                        itemView.setBackgroundColor(Color.parseColor("#fffffff"));
-                    }*/
-
                 }
             });
         }
@@ -109,7 +89,6 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
         return context;
     }
 
-
     @NonNull
     @Override
     public StudentsAdapter.StudentsHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -125,14 +104,13 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
     @Override
     public void onBindViewHolder(@NonNull StudentsAdapter.StudentsHolder holder, int position) {
 
-
         Student student = studentList.get(position);
 
         TextView textView = holder.student_name;
         textView.setText(student.getStudentName());
 
         Button button = holder.student_button;
-        button.setText(student.isGraduated() ? "GRADUATED" : "SUSPENDED" );
+        button.setText(student.isGraduated() ? "GRADUATED" : "SUSPENDED");
         button.setEnabled(student.isGraduated());
 
         ImageView imageView = holder.student_remove_icon;
@@ -142,7 +120,7 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
                 Student dataPosition = studentList.get(position);
                 studentList.remove(position);
                 notifyItemRemoved(position);
-                notifyItemRangeChanged(position,studentList.size());
+                notifyItemRangeChanged(position, studentList.size());
             }
         });
 
@@ -154,4 +132,7 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
     }
 
 
+    public void addCancelled () {
+
+    }
 }

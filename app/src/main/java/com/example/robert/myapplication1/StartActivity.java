@@ -15,6 +15,7 @@ import com.example.robert.myapplication1.broadcast.BroadcastRegAppActivity;
 import com.example.robert.myapplication1.fragment.FragmentActivity;
 import com.example.robert.myapplication1.fragment.FragmentDynamicActivity;
 import com.example.robert.myapplication1.retrofit.RocketActivity;
+import com.example.robert.myapplication1.simplecasemvp.SimpleCaseMvpActivity;
 import com.example.robert.myapplication1.simpleworks.Call;
 import com.example.robert.myapplication1.simpleworks.Constraint;
 import com.example.robert.myapplication1.simpleworks.DownloadActivity;
@@ -75,7 +76,7 @@ public class StartActivity extends AppCompatActivity {
     private Button button35;
     private Button button36;
     private Button button37;
-
+    private Button button38;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -375,6 +376,14 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openActivity(InputLayoutActivity.class);
+            }
+        });
+
+        button38 = (Button) findViewById(R.id.buttonStart38);
+        button38.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(SimpleCaseMvpActivity.class);
             }
         });
     }

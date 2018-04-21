@@ -1,6 +1,6 @@
 package com.example.robert.myapplication1.RecyclerView;
 
-public class StudentsView implements StudentsContract.Presenter {
+public class StudentsView implements StudentsContract.View {
 
     private StudentsContract.Presenter presenter;
 
@@ -9,7 +9,12 @@ public class StudentsView implements StudentsContract.Presenter {
     }
 
     @Override
-    public void getData() {
+    public void updateList() {
+
+    }
+
+    @Override
+    public void showUndoCancel() {
 
     }
 }

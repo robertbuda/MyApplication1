@@ -34,6 +34,7 @@ public class InputLayoutActivity extends AppCompatActivity {
     @BindView(R.id.tilPassword) TextInputLayout tilPassword;
 
     private Snackbar snackbar;
+    private String bufforLogin;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,14 +45,14 @@ public class InputLayoutActivity extends AppCompatActivity {
 
         snackbar = Snackbar.make(findViewById(R.id.myCoordinatorLayout), "Wait one moment ...",
                 Snackbar.LENGTH_LONG);
-        snackbar.setAction("CLEAR LOGIN", new MyUndoListener());
+        snackbar.setAction("CLEAR LOGIN AND PASSWORD", new MyUndoListener());
         snackbar.show();
     }
+
 
     private static final String EMAIL_PATTERN = "^[a-zA-Z0-9#_~!$&'()*+,;=:.\"(),:;<>@\\[\\]\\\\]+@+[a-zA-Z0-9-]+.+[a-zA-Z0-9-]";
     private Pattern pattern = Pattern.compile(EMAIL_PATTERN);
     private Matcher matcher;
-
 
     public boolean validateEmail(String email) {
         matcher = pattern.matcher(email);
@@ -59,7 +60,7 @@ public class InputLayoutActivity extends AppCompatActivity {
     }
 
     public boolean validatePassword(String password) {
-        return password.length() < 20;
+        return password.length() < 20 && password.length() > 0;
     }
 
 
@@ -69,13 +70,14 @@ public class InputLayoutActivity extends AppCompatActivity {
         snackbar.show();
         String username = textInputUserName.getText().toString();
         String password = textInputPassword.getText().toString();
-        if (!validateEmail(username)) {
+        if (!validateEmail(username) || username == null) {
             textInputUserName.setError("Not a valid email address!");
-        } else if (!validatePassword(password)) {
+        } else if (!validatePassword(password) || password == null) {
             textInputPassword.setError("Not a valid password, min. 6 charakters!");
         } else {
             // TODO login
-            Toast.makeText(this,"Wait ...",Toast.LENGTH_LONG).show();
+            bufforLogin = username;
+            Toast.makeText(this,"Wait to login ...",Toast.LENGTH_LONG).show();
         }
 
     }
@@ -94,7 +96,9 @@ public class InputLayoutActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
 
-            textInputUserName.setText("");        }
+            textInputUserName.setText("");
+            textInputPassword.setText("");
+            }
     }
 
 
