@@ -18,13 +18,13 @@ public class StudentsPresenter implements StudentsContract.Presenter {
 
     private StudentsContract.View view;
     private ArrayList<Student> students = new ArrayList<Student>();
+    private int lastStudentId = 0;
 
 
     public StudentsPresenter(StudentsContract.View view) {
         this.view = view;
     }
 
-    private int lastStudentId = 0;
 
     @Override
     public void getData(int numStudents) {
@@ -34,7 +34,20 @@ public class StudentsPresenter implements StudentsContract.Presenter {
             view.updateList(students);
     }
 
+    @Override
+    public void addOneStudent() {
+        view.addStudent();
+    }
 
+    @Override
+    public void showSnackBar(Student studentUndo, int positionUndo) {
+        view.showSnackBarInView(studentUndo,positionUndo);
+    }
+
+    @Override
+    public void addUndoStudent(Student studentUndo, int positionUndo) {
+
+    }
 
 
 }

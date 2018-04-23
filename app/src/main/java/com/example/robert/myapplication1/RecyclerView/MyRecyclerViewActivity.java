@@ -22,11 +22,15 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MyRecyclerViewActivity extends AppCompatActivity implements StudentsContract.View{
+public class MyRecyclerViewActivity extends AppCompatActivity implements StudentsContract.View , StudentsContract.AdapterInterface{
 
     private StudentsContract.Presenter presenter;
     private StudentsAdapter studentsAdapter;
     private ArrayList<Student> students = new ArrayList<Student>();
+    private Context context;
+    private StudentsContract.AdapterInterface adapterInterface;
+    private Student studentUndoToShow;
+    private int positionUndoToShow;
 
     @BindView(R.id.studentRecyclerView)
     RecyclerView studentsRecycler;
@@ -39,10 +43,11 @@ public class MyRecyclerViewActivity extends AppCompatActivity implements Student
         presenter = new StudentsPresenter(this);
         setupRecycler();
         presenter.getData(50);
+        showFloatingButton();
     }
 
     public void setupRecycler() {
-        studentsAdapter = new StudentsAdapter(students,this );
+        studentsAdapter = new StudentsAdapter(students,this, this );
         studentsRecycler.setLayoutManager(new LinearLayoutManager(this));
         studentsRecycler.setAdapter(studentsAdapter);
         RecyclerView.ItemDecoration decoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
@@ -57,12 +62,13 @@ public class MyRecyclerViewActivity extends AppCompatActivity implements Student
     @Override
     public void addStudent() {
         studentsAdapter.addStudentToAdapter();
+        studentsRecycler.scrollToPosition(0);
     }
 
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        addStudent();
+        presenter.addOneStudent();
         return true;
     }
 
@@ -73,32 +79,41 @@ public class MyRecyclerViewActivity extends AppCompatActivity implements Student
         return true;
     }
 
-
-
     @Override
-    public void updateAdapter() {
-
-    }
-
-
-
-
-    public void showUndoCancel () {
+    public void showFloatingButton () {
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
-                        .setAction("UNDO", new MyUndoListener())
-                        .show();
+               presenter.addOneStudent();
             }
         });
     }
 
-    public class MyUndoListener implements View.OnClickListener{
+    public void showSnackBarInView(Student studentUndo, int positionUndo) {
+        Snackbar snackbar = Snackbar.make(findViewById(R.id.myCoordinatorLayout), "Here's a Snackbar", Snackbar.LENGTH_LONG);
+        snackbar.setAction("UNDO", new MyUndoStudent());
+        snackbar.show();
+        studentUndoToShow = studentUndo;
+        positionUndoToShow = positionUndo;
+    }
+
+    @Override
+    public void showUndoStudent(Student studentUndo, int positionUndo) {
+
+    }
+
+    @Override
+    public void dataToPresenter(Student studentUndo, int positionUndo) {
+        presenter.showSnackBar(studentUndo, positionUndo);
+    }
+
+    public class MyUndoStudent implements View.OnClickListener{
         @Override
         public void onClick(View v) {
-
+        studentsAdapter.addUndoStudentToAdapter();
         }
     }
+
+
 }

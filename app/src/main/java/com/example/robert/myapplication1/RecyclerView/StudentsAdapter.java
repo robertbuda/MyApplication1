@@ -22,7 +22,9 @@ import android.widget.Toast;
 import com.example.robert.myapplication1.ButterKnifeActivity_ViewBinding;
 import com.example.robert.myapplication1.JobScheduler.ScheduleJobContract;
 import com.example.robert.myapplication1.R;
+import com.example.robert.myapplication1.simplecasemvp.Contract;
 
+import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -33,15 +35,32 @@ import butterknife.ButterKnife;
 public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.StudentsHolder> {
 
 
+    private Context context;
+    private List<Student> studentList = new ArrayList<>();
+    private StudentsContract.AdapterInterface adapterInterface;
+
+
+    public StudentsAdapter(List<Student> studentList, Context context, StudentsContract.AdapterInterface adapterInterface) {
+        this.studentList = studentList;
+        this.context = context;
+        this.adapterInterface = adapterInterface;
+    }
+
+    public Context getContext() {
+        return context;
+    }
+
 
     public class StudentsHolder extends RecyclerView.ViewHolder {
 
         public TextView student_name;
         public Button student_button;
         public ImageView student_remove_icon;
+
         private int selectedPosition = -1;
         private HashMap hashMap = new HashMap();
         private int i = 0;
+
 
 
         public StudentsHolder(View studentsHolderView) {
@@ -59,7 +78,6 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
                         itemView.setBackgroundColor(Color.parseColor("#ffffff"));
                         notifyItemChanged(selectedPosition);
                         Toast.makeText(context, "" + selectedPosition, Toast.LENGTH_LONG).show();
-
                     } else {
                         itemView.setBackgroundColor(Color.parseColor("#fdd835"));
                         hashMap.put(i, selectedPosition);
@@ -72,19 +90,6 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
         }
     }
 
-
-    private List<Student> studentList = new ArrayList<>();
-    private Context context;
-
-    public StudentsAdapter(List<Student> studentList, Context context) {
-        this.studentList = studentList;
-        this.context = context;
-    }
-
-    public Context getContext() {
-        return context;
-    }
-
     @NonNull
     @Override
     public StudentsAdapter.StudentsHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -92,6 +97,8 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View studentsHolderView = layoutInflater.inflate(R.layout.item_student, parent, false);
         StudentsHolder studentsHolder = new StudentsHolder(studentsHolderView);
+
+        context = studentsHolderView.getContext();
 
         return studentsHolder;
     }
@@ -113,12 +120,9 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                studentList.remove(position);
-                notifyItemRemoved(position);
-                notifyItemRangeChanged(position, studentList.size());
+               removeStudent(position);
             }
         });
-
     }
 
     @Override
@@ -126,8 +130,17 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
         return studentList.size();
     }
 
+    private Student studentUndo;
+    private int positionUndo;
 
-
+    public void removeStudent (int position) {
+        studentUndo = studentList.get(position);
+        positionUndo = position;
+        studentList.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, studentList.size());
+        showSBar(studentUndo,positionUndo);
+    }
 
     public void updateStudentsList(List<Student> students) {
         studentList.addAll(students);
@@ -139,4 +152,15 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
         notifyItemInserted(0);
         notifyItemRangeChanged(0,getItemCount());
     }
+
+    public void showSBar (Student studentUndo, int positionUndo) {
+        adapterInterface.dataToPresenter(studentUndo, positionUndo);
+    }
+
+    public void addUndoStudentToAdapter () {
+        studentList.add(positionUndo,studentUndo);
+        notifyItemInserted(positionUndo);
+        notifyItemRangeChanged(0,getItemCount());
+    }
+
 }
