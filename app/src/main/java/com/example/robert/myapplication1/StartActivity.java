@@ -27,11 +27,14 @@ import com.example.robert.myapplication1.simpleworks.Linear;
 import com.example.robert.myapplication1.simpleworks.LoginDialogActivity;
 import com.example.robert.myapplication1.simpleworks.MainActivity;
 import com.example.robert.myapplication1.simpleworks.NotificationActivity;
+import com.example.robert.myapplication1.simpleworks.PagesActivity;
 import com.example.robert.myapplication1.simpleworks.RectangleDrawActivity;
 import com.example.robert.myapplication1.simpleworks.Relative;
 import com.example.robert.myapplication1.simpleworks.Snow;
 import com.example.robert.myapplication1.simpleworks.Weather;
 import com.example.robert.myapplication1.simpleworks.WebViewActivity1;
+
+import fragments.MyPagerAdapter;
 
 /**
  * Created by Robert on 2018-02-18.
@@ -77,6 +80,7 @@ public class StartActivity extends AppCompatActivity {
     private Button button36;
     private Button button37;
     private Button button38;
+    private Button button39;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -386,7 +390,18 @@ public class StartActivity extends AppCompatActivity {
                 openActivity(SimpleCaseMvpActivity.class);
             }
         });
+
+        button39 = (Button) findViewById(R.id.buttonStart39);
+        button39.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(PagesActivity.class);
+            }
+        });
+
     }
+
+
 
     private void openActivity(Class class1) {
         Intent intent = new Intent(this, class1);

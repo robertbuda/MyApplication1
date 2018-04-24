@@ -4,10 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.example.robert.myapplication1.R;
 import com.google.gson.Gson;
@@ -20,14 +22,17 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RocketStartsActivity extends AppCompatActivity implements RocketContract.View{
+public class RocketStartsActivity extends AppCompatActivity implements RocketContract.View , SwipeRefreshLayout.OnRefreshListener{
 
 
     private RocketContract.Presenter presenter;
     private Context context;
+    private List<Rocket> rocket;
 
     @BindView(R.id.rocket_starts_recycler_view)
     RecyclerView rocket_starts_recycler_view;
+
+    @BindView(R.id.swiperefresh2) SwipeRefreshLayout swiperefresh2;
 
 
     @Override
@@ -50,6 +55,8 @@ public class RocketStartsActivity extends AppCompatActivity implements RocketCon
                 .build();
 
         presenter = new RocketStartsPresenter(this, retrofit.create(Api.class),id);
+
+        refreshMySwipe();
     }
 
     public void showData(List<Rocket> rocket){
@@ -67,5 +74,19 @@ public class RocketStartsActivity extends AppCompatActivity implements RocketCon
 
     @Override
     public void setProgressBarInvisible() {
+    }
+
+    public void refreshMySwipe () {
+        swiperefresh2.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                presenter.refreshRocketData();
+            }
+        });
+    }
+
+    @Override
+    public void onRefresh() {
+
     }
 }

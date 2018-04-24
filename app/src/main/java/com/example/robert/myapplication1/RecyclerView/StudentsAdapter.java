@@ -34,11 +34,9 @@ import butterknife.ButterKnife;
 
 public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.StudentsHolder> {
 
-
     private Context context;
     private List<Student> studentList = new ArrayList<>();
     private StudentsContract.AdapterInterface adapterInterface;
-
 
     public StudentsAdapter(List<Student> studentList, Context context, StudentsContract.AdapterInterface adapterInterface) {
         this.studentList = studentList;
@@ -50,7 +48,6 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
         return context;
     }
 
-
     public class StudentsHolder extends RecyclerView.ViewHolder {
 
         public TextView student_name;
@@ -60,8 +57,6 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
         private int selectedPosition = -1;
         private HashMap hashMap = new HashMap();
         private int i = 0;
-
-
 
         public StudentsHolder(View studentsHolderView) {
             super(studentsHolderView);
@@ -93,36 +88,27 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
     @NonNull
     @Override
     public StudentsAdapter.StudentsHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View studentsHolderView = layoutInflater.inflate(R.layout.item_student, parent, false);
         StudentsHolder studentsHolder = new StudentsHolder(studentsHolderView);
 
-        context = studentsHolderView.getContext();
-
         return studentsHolder;
     }
 
-
     @Override
     public void onBindViewHolder(@NonNull StudentsAdapter.StudentsHolder holder, int position) {
-
         Student student = studentList.get(position);
-
         TextView textView = holder.student_name;
         textView.setText(student.getStudentName());
-
         Button button = holder.student_button;
         button.setText(student.isGraduated() ? "GRADUATED" : "SUSPENDED");
         button.setEnabled(student.isGraduated());
-
         ImageView imageView = holder.student_remove_icon;
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                removeStudent(position);
-            }
-        });
+            }});
     }
 
     @Override
@@ -161,6 +147,7 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
         studentList.add(positionUndo,studentUndo);
         notifyItemInserted(positionUndo);
         notifyItemRangeChanged(0,getItemCount());
+
     }
 
 }

@@ -65,7 +65,6 @@ public class MyRecyclerViewActivity extends AppCompatActivity implements Student
         studentsRecycler.scrollToPosition(0);
     }
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         presenter.addOneStudent();
@@ -91,16 +90,11 @@ public class MyRecyclerViewActivity extends AppCompatActivity implements Student
     }
 
     public void showSnackBarInView(Student studentUndo, int positionUndo) {
-        Snackbar snackbar = Snackbar.make(findViewById(R.id.myCoordinatorLayout), "Here's a Snackbar", Snackbar.LENGTH_LONG);
+        Snackbar snackbar = Snackbar.make(findViewById(R.id.myCoordinatorLayout), "Click to undo last remove", Snackbar.LENGTH_LONG);
         snackbar.setAction("UNDO", new MyUndoStudent());
         snackbar.show();
         studentUndoToShow = studentUndo;
         positionUndoToShow = positionUndo;
-    }
-
-    @Override
-    public void showUndoStudent(Student studentUndo, int positionUndo) {
-
     }
 
     @Override
@@ -111,9 +105,14 @@ public class MyRecyclerViewActivity extends AppCompatActivity implements Student
     public class MyUndoStudent implements View.OnClickListener{
         @Override
         public void onClick(View v) {
-        studentsAdapter.addUndoStudentToAdapter();
+        showUndoStudent();
         }
     }
 
+    @Override
+    public void showUndoStudent() {
+        studentsAdapter.addUndoStudentToAdapter();
+        studentsRecycler.scrollToPosition(positionUndoToShow);
+    }
 
 }

@@ -9,7 +9,7 @@ public interface StudentsContract {
         void addStudent();
         void showFloatingButton();
         void showSnackBarInView(Student studentUndo, int positionUndo);
-        void showUndoStudent(Student studentUndo, int positionUndo);
+        void showUndoStudent();
     }
 
     interface Presenter {
