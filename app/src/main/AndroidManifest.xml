@@ -79,6 +79,7 @@
         <activity android:name=".simpleworks.InputLayoutActivity" />
         <activity android:name=".simplecasemvp.SimpleCaseMvpActivity" />
         <activity android:name=".simpleworks.PagesActivity" />
+        <activity android:name=".navigationdrawer.DrawerActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

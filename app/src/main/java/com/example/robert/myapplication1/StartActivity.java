@@ -14,6 +14,7 @@ import com.example.robert.myapplication1.broadcast.BroadcastBootAvtivity;
 import com.example.robert.myapplication1.broadcast.BroadcastRegAppActivity;
 import com.example.robert.myapplication1.fragment.FragmentActivity;
 import com.example.robert.myapplication1.fragment.FragmentDynamicActivity;
+import com.example.robert.myapplication1.navigationdrawer.DrawerActivity;
 import com.example.robert.myapplication1.retrofit.RocketActivity;
 import com.example.robert.myapplication1.simplecasemvp.SimpleCaseMvpActivity;
 import com.example.robert.myapplication1.simpleworks.Call;
@@ -81,6 +82,7 @@ public class StartActivity extends AppCompatActivity {
     private Button button37;
     private Button button38;
     private Button button39;
+    private Button button40;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -396,6 +398,14 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openActivity(PagesActivity.class);
+            }
+        });
+
+        button40 = (Button) findViewById(R.id.buttonStart40);
+        button40.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(DrawerActivity.class);
             }
         });
 
