@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/imageViewToCamera"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_width="100dp"
+        android:layout_height="200dp" />
     <Button
         android:id="@+id/buttonToFoto"
         android:layout_width="wrap_content"
@@ -17,5 +17,22 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="300dp"
         android:text="Make Foto" />
+
+    <Button
+        android:id="@+id/buttonShowImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Show Foto"
+        android:layout_below="@id/buttonToFoto"/>
+
+    <ImageView
+        android:id="@+id/imageFromMemory"
+        android:layout_width="100dp"
+        android:layout_height="200dp"
+        android:layout_alignBottom="@id/buttonShowImage"
+        />
+
 
 </RelativeLayout>
