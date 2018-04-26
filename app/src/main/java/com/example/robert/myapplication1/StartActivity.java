@@ -35,6 +35,7 @@ import com.example.robert.myapplication1.simpleworks.Snow;
 import com.example.robert.myapplication1.simpleworks.Weather;
 import com.example.robert.myapplication1.simpleworks.WebViewActivity1;
 
+import database.DatabaseActivity;
 import fragments.MyPagerAdapter;
 
 /**
@@ -83,6 +84,7 @@ public class StartActivity extends AppCompatActivity {
     private Button button38;
     private Button button39;
     private Button button40;
+    private Button button41;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -406,6 +408,14 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openActivity(DrawerActivity.class);
+            }
+        });
+
+        button41 = (Button) findViewById(R.id.buttonStart41);
+        button41.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(DatabaseActivity.class);
             }
         });
 

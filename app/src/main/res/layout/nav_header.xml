@@ -6,7 +6,8 @@
     android:padding="16dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
     android:orientation="vertical"
-    android:gravity="bottom">
+    android:gravity="bottom"
+    android:id="@+id/header_layout">
 
     <TextView
         android:id="@+id/textHomeDrawerHeader"
