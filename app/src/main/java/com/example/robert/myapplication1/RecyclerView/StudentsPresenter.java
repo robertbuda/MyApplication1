@@ -1,18 +1,6 @@
 package com.example.robert.myapplication1.RecyclerView;
 
-import android.app.Activity;
-import android.content.Context;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-
-import com.example.robert.myapplication1.R;
-
 import java.util.ArrayList;
-import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class StudentsPresenter implements StudentsContract.Presenter {
 
@@ -46,6 +34,16 @@ public class StudentsPresenter implements StudentsContract.Presenter {
 
     @Override
     public void addUndoStudent(Student studentUndo, int positionUndo) {
+
+    }
+
+    @Override
+    public int showNumberStudents() {
+        return 0;
+    }
+
+    @Override
+    public void getNumberStudents(int numStudents) {
 
     }
 

@@ -48,6 +48,7 @@ public class CameraActivity extends AppCompatActivity{
 
     private File mypath;
     private File directory;
+    private File directoryImage;
     private File f;
     private Bitmap b;
     private ImageView img;
@@ -57,7 +58,6 @@ public class CameraActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
         ButterKnife.bind(this);
-
         cameraButton = (Button) findViewById(R.id.buttonToFoto);
         cameraImage = (ImageView) findViewById(R.id.imageViewToCamera);
 
@@ -182,7 +182,6 @@ public class CameraActivity extends AppCompatActivity{
 
     @OnClick(R.id.buttonShowImage)
     public void loadImageFromStorage () {
-
         try {
             f = new File(directory, "MyImage1.jpg");
             b = BitmapFactory.decodeStream(new FileInputStream(f));
@@ -196,6 +195,8 @@ public class CameraActivity extends AppCompatActivity{
         }
 
     }
+
+
 
 
 }

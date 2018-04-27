@@ -1,6 +1,7 @@
 package com.example.robert.myapplication1.RecyclerView;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.ColorSpace;
 import android.net.sip.SipSession;
@@ -37,6 +38,7 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
     private Context context;
     private List<Student> studentList = new ArrayList<>();
     private StudentsContract.AdapterInterface adapterInterface;
+
 
     public StudentsAdapter(List<Student> studentList, Context context, StudentsContract.AdapterInterface adapterInterface) {
         this.studentList = studentList;
@@ -133,8 +135,10 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
         notifyDataSetChanged();
     }
 
+    private int lastStudentId = 0;
+
     public void addStudentToAdapter() {
-        studentList.add(0,new Student("New Student",true));
+        studentList.add(0,new Student("New Student " + ++lastStudentId,true));
         notifyItemInserted(0);
         notifyItemRangeChanged(0,getItemCount());
     }
@@ -149,5 +153,7 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
         notifyItemRangeChanged(0,getItemCount());
 
     }
+
+
 
 }

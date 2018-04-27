@@ -17,6 +17,8 @@ public interface StudentsContract {
         void addOneStudent();
         void showSnackBar(Student studentUndo, int positionUndo);
         void addUndoStudent(Student studentUndo, int positionUndo);
+        int showNumberStudents ();
+        void getNumberStudents (int numStudents);
     }
 
     interface AdapterInterface {

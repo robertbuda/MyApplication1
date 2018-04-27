@@ -16,6 +16,7 @@ import com.example.robert.myapplication1.fragment.FragmentActivity;
 import com.example.robert.myapplication1.fragment.FragmentDynamicActivity;
 import com.example.robert.myapplication1.navigationdrawer.DrawerActivity;
 import com.example.robert.myapplication1.retrofit.RocketActivity;
+import com.example.robert.myapplication1.sharedpreferences.SharedPreferencesActivity;
 import com.example.robert.myapplication1.simplecasemvp.SimpleCaseMvpActivity;
 import com.example.robert.myapplication1.simpleworks.Call;
 import com.example.robert.myapplication1.simpleworks.Constraint;
@@ -85,6 +86,7 @@ public class StartActivity extends AppCompatActivity {
     private Button button39;
     private Button button40;
     private Button button41;
+    private Button button42;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -416,6 +418,14 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openActivity(DatabaseActivity.class);
+            }
+        });
+
+        button42 = (Button) findViewById(R.id.buttonStart42);
+        button42.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(SharedPreferencesActivity.class);
             }
         });
 

@@ -1,6 +1,7 @@
 package com.example.robert.myapplication1.RecyclerView;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -31,6 +32,9 @@ public class MyRecyclerViewActivity extends AppCompatActivity implements Student
     private StudentsContract.AdapterInterface adapterInterface;
     private Student studentUndoToShow;
     private int positionUndoToShow;
+    private int numberOfStudent = 0;
+    public static final String MY_PREFS_NAME = "MyPrefsStudents";
+    private int numberOfStudentToSave;
 
     @BindView(R.id.studentRecyclerView)
     RecyclerView studentsRecycler;
@@ -42,7 +46,8 @@ public class MyRecyclerViewActivity extends AppCompatActivity implements Student
         ButterKnife.bind(this);
         presenter = new StudentsPresenter(this);
         setupRecycler();
-        presenter.getData(50);
+        numberOfStudent = getStudentsNumberFromSharedPreferences();
+        presenter.getData(numberOfStudent);
         showFloatingButton();
     }
 
@@ -115,4 +120,22 @@ public class MyRecyclerViewActivity extends AppCompatActivity implements Student
         studentsRecycler.scrollToPosition(positionUndoToShow);
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        numberOfStudentToSave = studentsAdapter.getItemCount();
+        updateStudentsNumberToSharedPreferences(numberOfStudentToSave);
+    }
+
+    public void updateStudentsNumberToSharedPreferences (int students) {
+        SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+        editor.putInt("numberOfStudents", students);
+        editor.apply();
+    }
+
+    public int getStudentsNumberFromSharedPreferences (){
+        SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+            int studentsNumber = prefs.getInt("numberOfStudents", 0);
+            return studentsNumber;
+    }
 }
