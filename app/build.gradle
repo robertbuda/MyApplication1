@@ -68,4 +68,8 @@ dependencies {
 
     //Design  com.android.support:design:27.1.0
     implementation 'com.android.support:design:27.1.1'
+
+    // Room
+    implementation "android.arch.persistence.room:runtime:1.1.0-beta3"
+    annotationProcessor "android.arch.persistence.room:compiler:1.1.0-beta3"
 }

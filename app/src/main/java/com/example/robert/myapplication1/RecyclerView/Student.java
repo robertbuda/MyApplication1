@@ -8,6 +8,7 @@ public class Student {
     private String studentName;
     private boolean isGraduated;
 
+
     public Student(String studentName, boolean isGraduated) {
         this.studentName = studentName;
         this.isGraduated = isGraduated;

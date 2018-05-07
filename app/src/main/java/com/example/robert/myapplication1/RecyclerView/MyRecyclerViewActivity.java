@@ -1,5 +1,6 @@
 package com.example.robert.myapplication1.RecyclerView;
 
+import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -137,5 +138,11 @@ public class MyRecyclerViewActivity extends AppCompatActivity implements Student
         SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
             int studentsNumber = prefs.getInt("numberOfStudents", 0);
             return studentsNumber;
+    }
+
+    public void initiateStudentDataBase(){
+
+        StudentDataBase db = Room.databaseBuilder(getApplicationContext(),
+                StudentDataBase.class, "database-students").build();
     }
 }
