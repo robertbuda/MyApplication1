@@ -50,8 +50,16 @@
     <string name="send">Send</string>
     <string name="title">Title</string>
     <string name="title_activity_maps">Map</string>
-
-
+    <string name="student_name">name</string>
+    <string name="student_surname">second name</string>
+    <string name="grades">grades</string>
+    <string name="is_drunk">is drunk?</string>
+    <string name="acount_value">account value</string>
+    <string name="address">adress</string>
+    <string name="street">street</string>
+    <string name="city">city</string>
+    <string name="number">number</string>
+    <string name="save_student">SAVE</string>
 
 
 </resources>

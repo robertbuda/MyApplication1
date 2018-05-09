@@ -1,5 +1,7 @@
 package com.example.robert.myapplication1.RecyclerView;
 
+import com.example.robert.myapplication1.room.StudentDao;
+
 import java.util.ArrayList;
 
 public class StudentsPresenter implements StudentsContract.Presenter {
@@ -7,6 +9,7 @@ public class StudentsPresenter implements StudentsContract.Presenter {
     private StudentsContract.View view;
     private ArrayList<Student> students = new ArrayList<Student>();
     private int lastStudentId = 0;
+    private StudentDao studentDao;
 
 
     public StudentsPresenter(StudentsContract.View view) {
@@ -25,6 +28,7 @@ public class StudentsPresenter implements StudentsContract.Presenter {
     @Override
     public void addOneStudent() {
         view.addStudent();
+
     }
 
     @Override

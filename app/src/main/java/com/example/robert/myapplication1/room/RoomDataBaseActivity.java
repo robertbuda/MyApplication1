@@ -1,5 +1,6 @@
-package com.example.robert.myapplication1.RecyclerView;
+package com.example.robert.myapplication1.room;
 
+import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -16,6 +17,10 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.robert.myapplication1.R;
+import com.example.robert.myapplication1.RecyclerView.Student;
+import com.example.robert.myapplication1.RecyclerView.StudentsAdapter;
+import com.example.robert.myapplication1.RecyclerView.StudentsContract;
+import com.example.robert.myapplication1.RecyclerView.StudentsPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,36 +28,40 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MyRecyclerViewActivity extends AppCompatActivity implements StudentsContract.View , StudentsContract.AdapterInterface{
+public class RoomDataBaseActivity extends AppCompatActivity implements StudentsContractDao.View , StudentsContractDao.AdapterInterface{
 
-    private StudentsContract.Presenter presenter;
-    private StudentsAdapter studentsAdapter;
-    private ArrayList<Student> students = new ArrayList<Student>();
+    private StudentsContractDao.Presenter presenter;
+    private StudentsAdapterDao studentsAdapter;
+    private ArrayList<StudentData> students = new ArrayList<StudentData>();
     private Context context;
-    private StudentsContract.AdapterInterface adapterInterface;
-    private Student studentUndoToShow;
+    private StudentsContractDao.AdapterInterface adapterInterface;
+    private StudentData studentUndoToShow;
     private int positionUndoToShow;
     private int numberOfStudent = 0;
     public static final String MY_PREFS_NAME = "MyPrefsStudents";
     private int numberOfStudentToSave;
 
+    public static StudentDataBase db;
+
     @BindView(R.id.studentRecyclerView)
     RecyclerView studentsRecycler;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_view);
         ButterKnife.bind(this);
-        presenter = new StudentsPresenter(this);
+        presenter = new StudentsPresenterDao(this);
         setupRecycler();
-        numberOfStudent = getStudentsNumberFromSharedPreferences();
+        setRoomDataBase();
+        numberOfStudent = db.studentDao().getAll().size();
         presenter.getData(numberOfStudent);
         showFloatingButton();
     }
 
     public void setupRecycler() {
-        studentsAdapter = new StudentsAdapter(students,this, this );
+        studentsAdapter = new StudentsAdapterDao(students,this, this );
         studentsRecycler.setLayoutManager(new LinearLayoutManager(this));
         studentsRecycler.setAdapter(studentsAdapter);
         RecyclerView.ItemDecoration decoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
@@ -60,8 +69,9 @@ public class MyRecyclerViewActivity extends AppCompatActivity implements Student
     }
 
     @Override
-    public void updateList(List<Student> students) {
-        studentsAdapter.updateStudentsList(students);
+    public void updateListDao(List<StudentData> students) {
+        studentsAdapter.updateStudentsListDao(students);
+
     }
 
     @Override
@@ -94,7 +104,7 @@ public class MyRecyclerViewActivity extends AppCompatActivity implements Student
         });
     }
 
-    public void showSnackBarInView(Student studentUndo, int positionUndo) {
+    public void showSnackBarInView(StudentData studentUndo, int positionUndo) {
         Snackbar snackbar = Snackbar.make(findViewById(R.id.myCoordinatorLayout), "Click to undo last remove", Snackbar.LENGTH_LONG);
         snackbar.setAction("UNDO", new MyUndoStudent());
         snackbar.show();
@@ -103,7 +113,7 @@ public class MyRecyclerViewActivity extends AppCompatActivity implements Student
     }
 
     @Override
-    public void dataToPresenter(Student studentUndo, int positionUndo) {
+    public void dataToPresenter(StudentData studentUndo, int positionUndo) {
         presenter.showSnackBar(studentUndo, positionUndo);
     }
 
@@ -123,8 +133,8 @@ public class MyRecyclerViewActivity extends AppCompatActivity implements Student
     @Override
     protected void onStop() {
         super.onStop();
-        numberOfStudentToSave = studentsAdapter.getItemCount();
-        updateStudentsNumberToSharedPreferences(numberOfStudentToSave);
+        //numberOfStudentToSave = studentsAdapter.getItemCount();
+
     }
 
     public void updateStudentsNumberToSharedPreferences (int students) {
@@ -137,5 +147,11 @@ public class MyRecyclerViewActivity extends AppCompatActivity implements Student
         SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
             int studentsNumber = prefs.getInt("numberOfStudents", 0);
             return studentsNumber;
+    }
+
+    public void setRoomDataBase(){
+        db = Room.databaseBuilder(getApplicationContext(),StudentDataBase.class, "database-student")
+                .allowMainThreadQueries()
+                .build();
     }
 }

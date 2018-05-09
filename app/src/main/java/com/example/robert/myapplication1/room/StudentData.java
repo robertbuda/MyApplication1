@@ -1,4 +1,4 @@
-package com.example.robert.myapplication1.RecyclerView;
+package com.example.robert.myapplication1.room;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Embedded;
@@ -9,7 +9,7 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity(tableName = "students")
 public class StudentData {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     public int id;
 
     @ColumnInfo(name = "first_name")
