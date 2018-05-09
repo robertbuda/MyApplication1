@@ -1,17 +1,9 @@
 package com.example.robert.myapplication1.RecyclerView;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.graphics.ColorSpace;
-import android.net.sip.SipSession;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.view.menu.MenuView;
 import android.support.v7.widget.RecyclerView;
-
-import android.support.v7.widget.RecyclerView.Adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,18 +12,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.robert.myapplication1.ButterKnifeActivity_ViewBinding;
-import com.example.robert.myapplication1.JobScheduler.ScheduleJobContract;
 import com.example.robert.myapplication1.R;
-import com.example.robert.myapplication1.simplecasemvp.Contract;
 
-import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.StudentsHolder> {
 

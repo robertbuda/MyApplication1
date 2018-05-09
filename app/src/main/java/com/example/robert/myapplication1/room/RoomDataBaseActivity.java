@@ -39,8 +39,7 @@ public class RoomDataBaseActivity extends AppCompatActivity implements StudentsC
     private int positionUndoToShow;
     private int numberOfStudent = 0;
     public static final String MY_PREFS_NAME = "MyPrefsStudents";
-    private int numberOfStudentToSave;
-
+    private StudentData studentData;
     public static StudentDataBase db;
 
     @BindView(R.id.studentRecyclerView)
@@ -55,8 +54,8 @@ public class RoomDataBaseActivity extends AppCompatActivity implements StudentsC
         presenter = new StudentsPresenterDao(this);
         setupRecycler();
         setRoomDataBase();
-        numberOfStudent = db.studentDao().getAll().size();
-        presenter.getData(numberOfStudent);
+        //numberOfStudent = db.studentDao().getAll().size();
+        presenter.getDataDao();
         showFloatingButton();
     }
 
@@ -71,18 +70,11 @@ public class RoomDataBaseActivity extends AppCompatActivity implements StudentsC
     @Override
     public void updateListDao(List<StudentData> students) {
         studentsAdapter.updateStudentsListDao(students);
-
-    }
-
-    @Override
-    public void addStudent() {
-        studentsAdapter.addStudentToAdapter();
-        studentsRecycler.scrollToPosition(0);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        presenter.addOneStudent();
+        //presenter.addOneStudent();
         return true;
     }
 
@@ -133,20 +125,7 @@ public class RoomDataBaseActivity extends AppCompatActivity implements StudentsC
     @Override
     protected void onStop() {
         super.onStop();
-        //numberOfStudentToSave = studentsAdapter.getItemCount();
-
-    }
-
-    public void updateStudentsNumberToSharedPreferences (int students) {
-        SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
-        editor.putInt("numberOfStudents", students);
-        editor.apply();
-    }
-
-    public int getStudentsNumberFromSharedPreferences (){
-        SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
-            int studentsNumber = prefs.getInt("numberOfStudents", 0);
-            return studentsNumber;
+        presenter.updateListStudent();
     }
 
     public void setRoomDataBase(){

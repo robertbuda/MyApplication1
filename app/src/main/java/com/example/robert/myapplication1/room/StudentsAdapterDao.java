@@ -118,9 +118,11 @@ public class StudentsAdapterDao extends Adapter<StudentsAdapterDao.StudentsHolde
         notifyItemRemoved(position);
         notifyItemRangeChanged(position, studentList.size());
         showSBar(studentUndo,positionUndo);
+        RoomDataBaseActivity.db.studentDao().deleteStudent(studentUndo);
     }
 
     public void updateStudentsListDao(List<StudentData> students) {
+        studentList.clear();
         studentList.addAll(students);
         notifyDataSetChanged();
     }
