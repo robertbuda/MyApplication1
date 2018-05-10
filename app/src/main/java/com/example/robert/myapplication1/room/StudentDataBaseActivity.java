@@ -36,6 +36,10 @@ public class StudentDataBaseActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         id = intent.getIntExtra("Student_ID", 0);
+
+        studentData = RoomDataBaseActivity.db.studentDao().getById(id);
+        etStudentName.setText(studentData.firstName);
+
     }
 
     @OnClick(R.id.btSaveStudent)
