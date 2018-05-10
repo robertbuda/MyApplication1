@@ -23,11 +23,10 @@ public class StudentsPresenterDao implements StudentsContractDao.Presenter {
 
     @Override
     public void addOneStudent() {
-        StudentData studentData = new StudentData();
+        StudentData studentData = new StudentData(0,"","",false,0,0,new Address("","",0));
         studentDao = RoomDataBaseActivity.db.studentDao();
         studentDao.insertStudent(studentData);
         view.updateListDao(studentDao.getAll());
-
     }
 
     @Override

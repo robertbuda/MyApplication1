@@ -30,4 +30,17 @@ public class StudentData {
     @Embedded
     public Address address;
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public StudentData(int id, String firstName, String lastName, boolean isDrunk, int grade, float accountVolume, Address address) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.isDrunk = isDrunk;
+        this.grade = grade;
+        this.accountVolume = accountVolume;
+        this.address = address;
+    }
 }

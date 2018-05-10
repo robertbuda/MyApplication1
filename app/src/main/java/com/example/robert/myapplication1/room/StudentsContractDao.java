@@ -26,6 +26,8 @@ public interface StudentsContractDao {
 
     interface AdapterInterface {
         void dataToPresenter(StudentData studentUndo, int positionUndo);
+        void openEditStudent(int id);
+
     }
 
 }

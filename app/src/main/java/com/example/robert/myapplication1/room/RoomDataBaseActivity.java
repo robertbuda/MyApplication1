@@ -2,6 +2,7 @@ package com.example.robert.myapplication1.room;
 
 import android.arch.persistence.room.Room;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -34,10 +35,8 @@ public class RoomDataBaseActivity extends AppCompatActivity implements StudentsC
     private StudentsAdapterDao studentsAdapter;
     private ArrayList<StudentData> students = new ArrayList<StudentData>();
     private Context context;
-    private StudentsContractDao.AdapterInterface adapterInterface;
     private StudentData studentUndoToShow;
     private int positionUndoToShow;
-    private int numberOfStudent = 0;
     public static final String MY_PREFS_NAME = "MyPrefsStudents";
     private StudentData studentData;
     public static StudentDataBase db;
@@ -54,7 +53,6 @@ public class RoomDataBaseActivity extends AppCompatActivity implements StudentsC
         presenter = new StudentsPresenterDao(this);
         setupRecycler();
         setRoomDataBase();
-        //numberOfStudent = db.studentDao().getAll().size();
         presenter.getDataDao();
         showFloatingButton();
     }
@@ -109,6 +107,13 @@ public class RoomDataBaseActivity extends AppCompatActivity implements StudentsC
         presenter.showSnackBar(studentUndo, positionUndo);
     }
 
+    @Override
+    public void openEditStudent(int id) {
+        Intent intent = new Intent(this, StudentDataBaseActivity.class);
+        intent.putExtra("Student_ID",id);
+        startActivity(intent);
+    }
+
     public class MyUndoStudent implements View.OnClickListener{
         @Override
         public void onClick(View v) {
@@ -123,6 +128,13 @@ public class RoomDataBaseActivity extends AppCompatActivity implements StudentsC
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+
+        presenter.updateListStudent();
+    }
+
+    @Override
     protected void onStop() {
         super.onStop();
         presenter.updateListStudent();
@@ -133,4 +145,5 @@ public class RoomDataBaseActivity extends AppCompatActivity implements StudentsC
                 .allowMainThreadQueries()
                 .build();
     }
+
 }

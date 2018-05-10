@@ -1,6 +1,7 @@
 package com.example.robert.myapplication1.room;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -22,7 +23,7 @@ import java.util.List;
 public class StudentsAdapterDao extends Adapter<StudentsAdapterDao.StudentsHolder> {
 
     private Context context;
-    private List<StudentData> studentList = new ArrayList<>();
+    private List<StudentData> studentList;
     private StudentsContractDao.AdapterInterface adapterInterface;
 
 
@@ -88,11 +89,18 @@ public class StudentsAdapterDao extends Adapter<StudentsAdapterDao.StudentsHolde
         StudentData student = studentList.get(position);
 
         TextView textView = holder.student_name;
-        textView.setText("" + student.id);
+        textView.setText("id: " + student.id + ", " + student.firstName + " " + student.lastName);
 
         Button button = holder.student_button;
-        button.setText(student.isDrunk ? "DRUNK" : "SOBER");
-        button.setEnabled(student.isDrunk);
+        //button.setText(student.isDrunk ? "DRUNK" : "SOBER");
+        button.setText("EDIT");
+        button.setEnabled(true);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                adapterInterface.openEditStudent(student.id);
+            }
+        });
 
         ImageView imageView = holder.student_remove_icon;
         imageView.setOnClickListener(new View.OnClickListener() {
@@ -127,14 +135,6 @@ public class StudentsAdapterDao extends Adapter<StudentsAdapterDao.StudentsHolde
         notifyDataSetChanged();
     }
 
-    private int lastStudentId = 0;
-
-    public void addStudentToAdapter() {
-        studentList.add(0,new StudentData());
-        notifyItemInserted(0);
-        notifyItemRangeChanged(0,getItemCount());
-    }
-
     public void showSBar (StudentData studentUndo, int positionUndo) {
         adapterInterface.dataToPresenter(studentUndo, positionUndo);
     }
@@ -143,9 +143,7 @@ public class StudentsAdapterDao extends Adapter<StudentsAdapterDao.StudentsHolde
         studentList.add(positionUndo,studentUndo);
         notifyItemInserted(positionUndo);
         notifyItemRangeChanged(0,getItemCount());
-
+        RoomDataBaseActivity.db.studentDao().insertStudent(studentUndo);
     }
-
-
 
 }
