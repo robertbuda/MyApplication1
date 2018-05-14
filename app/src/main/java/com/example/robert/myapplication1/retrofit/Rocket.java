@@ -18,6 +18,7 @@ public class Rocket {
     public static final String DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";
     public static final String DATE_OUTPUT = "yyyy MM dd";
 
+
     @SerializedName("payload_weights")
     @Expose
     public List<PayloadWeight> payloadWeights = new ArrayList<>();

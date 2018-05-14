@@ -19,10 +19,14 @@ public class StudentDataBaseActivity extends AppCompatActivity {
     @BindView(R.id.etStudentName)
     EditText etStudentName;
 
+    @BindView(R.id.etStudentSurname)
+    EditText etStudentSurname;
+
     @BindView(R.id.btSaveStudent)
     Button btSaveStudent;
 
     private String firstName;
+    private String lastName;
     private int id;
     private StudentData studentData;
     private StudentDao studentDao;
@@ -39,7 +43,7 @@ public class StudentDataBaseActivity extends AppCompatActivity {
 
         studentData = RoomDataBaseActivity.db.studentDao().getById(id);
         etStudentName.setText(studentData.firstName);
-
+        etStudentSurname.setText(studentData.lastName);
     }
 
     @OnClick(R.id.btSaveStudent)
@@ -50,6 +54,10 @@ public class StudentDataBaseActivity extends AppCompatActivity {
 
         firstName = etStudentName.getText().toString();
         studentData.setFirstName(firstName);
+
+        lastName = etStudentSurname.getText().toString();
+        studentData.setLastName(lastName);
+
         studentDao.updateStudents(studentData);
 
         Intent intent = new Intent(this,RoomDataBaseActivity.class);

@@ -16,16 +16,21 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.robert.myapplication1.R;
+import com.example.robert.myapplication1.SdaApplication;
+import com.example.robert.myapplication1.dagger.AppComponent;
+import com.example.robert.myapplication1.dagger.StudentsModule;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MyRecyclerViewActivity extends AppCompatActivity implements StudentsContract.View , StudentsContract.AdapterInterface{
 
-    private StudentsContract.Presenter presenter;
+    //private StudentsContract.Presenter presenter;
     private StudentsAdapter studentsAdapter;
     private ArrayList<Student> students = new ArrayList<Student>();
     private Context context;
@@ -39,12 +44,19 @@ public class MyRecyclerViewActivity extends AppCompatActivity implements Student
     @BindView(R.id.studentRecyclerView)
     RecyclerView studentsRecycler;
 
+    @Inject StudentsContract.Presenter presenter;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_view);
         ButterKnife.bind(this);
-        presenter = new StudentsPresenter(this);
+
+        ((SdaApplication) getApplication()).getAppComponent()
+                .plus(new StudentsModule(this))
+                .inject(this);
+
+        //presenter = new StudentsPresenter(this);
         setupRecycler();
         numberOfStudent = getStudentsNumberFromSharedPreferences();
         presenter.getData(numberOfStudent);

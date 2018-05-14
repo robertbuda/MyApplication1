@@ -34,6 +34,10 @@ public class StudentData {
         this.firstName = firstName;
     }
 
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     public StudentData(int id, String firstName, String lastName, boolean isDrunk, int grade, float accountVolume, Address address) {
         this.id = id;
         this.firstName = firstName;
